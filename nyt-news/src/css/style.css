@@ -1,4 +1,32 @@
-h1 {
-  font-size: 32px; }
+#root {
+  display: flex;
+  flex-direction: column; }
+  #root .masthead {
+    display: flex;
+    width: 100vw;
+    max-width: 2000px;
+    height: 600px;
+    background: white; }
+    #root .masthead h1 {
+      font-size: 42px; }
+
+@media (max-width: 960px) {
+  #root .masthead {
+    max-width: 960px;
+    height: 600px; }
+    #root .masthead h1 {
+      font-size: 36px; } }
+@media (max-width: 700px) {
+  #root .masthead {
+    max-width: 960px;
+    height: 300px; }
+    #root .masthead h1 {
+      font-size: 32px; } }
+@media (max-width: 450px) {
+  #root .masthead {
+    max-width: 960px;
+    height: 300px; }
+    #root .masthead h1 {
+      font-size: 28px; } }
 
 /*# sourceMappingURL=style.css.map */

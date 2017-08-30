@@ -1,3 +1,67 @@
-h1 {
-	font-size: 32px;
+
+
+#root {
+	display: flex;
+	flex-direction: column;
+
+	.masthead {
+		display: flex;
+		width: 100vw;
+		max-width: 2000px;
+		height: 600px;
+		background: rgba(255,255,255,1); /* Not placed at other renditions yet */
+
+		h1 {
+			font-size: 42px;
+			color: #fff; /* Not placed at other renditions yet */
+		}
+	}
+}
+
+@media (max-width: 960px) {
+
+#root {
+
+	.masthead {
+		max-width: 960px;
+		height: 600px;
+
+		h1 {
+			font-size: 36px;
+		}
+	}
+}
+
+}
+
+@media (max-width: 700px) {
+
+#root {
+
+	.masthead {
+		max-width: 960px;
+		height: 300px;
+
+		h1 {
+			font-size: 32px;
+		}
+	}
+}
+
+}
+
+@media (max-width: 450px) {
+
+#root {
+
+	.masthead {
+		max-width: 960px;
+		height: 300px;
+
+		h1 {
+			font-size: 28px;
+		}
+	}
+}
+
 }
