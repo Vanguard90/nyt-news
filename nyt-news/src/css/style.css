@@ -6,9 +6,14 @@
     width: 100vw;
     max-width: 2000px;
     height: 600px;
-    background: white; }
-    #root .masthead h1 {
-      font-size: 42px; }
+    background: #140014;
+    /* Not placed at other renditions yet */ }
+    #root .masthead .textarea {
+      margin: 0 auto; }
+      #root .masthead .textarea h1 {
+        font-size: 42px;
+        color: #fff;
+        /* Not placed at other renditions yet */ }
 
 @media (max-width: 960px) {
   #root .masthead {

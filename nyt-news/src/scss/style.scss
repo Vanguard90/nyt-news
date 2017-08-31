@@ -9,11 +9,16 @@
 		width: 100vw;
 		max-width: 2000px;
 		height: 600px;
-		background: rgba(255,255,255,1); /* Not placed at other renditions yet */
+		background: rgba(20,0,20,1); /* Not placed at other renditions yet */
 
-		h1 {
-			font-size: 42px;
-			color: #fff; /* Not placed at other renditions yet */
+		.textarea {
+
+			margin: 0 auto;
+
+			h1 {
+				font-size: 42px;
+				color: #fff; /* Not placed at other renditions yet */
+			}
 		}
 	}
 }
