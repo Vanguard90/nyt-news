@@ -1,3 +1,20 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  line-height: 1; }
+
 #root {
   display: flex;
   flex-direction: column; }
@@ -5,20 +22,31 @@
     display: flex;
     width: 100vw;
     max-width: 2000px;
-    height: 600px;
+    height: 410px;
     background: #140014;
     /* Not placed at other renditions yet */ }
     #root .masthead .textarea {
-      margin: 0 auto; }
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
       #root .masthead .textarea h1 {
-        font-size: 42px;
-        color: #fff;
-        /* Not placed at other renditions yet */ }
+        font-size: 56px;
+        color: #ffe;
+        /* Not placed at other renditions yet */
+        padding-bottom: 20px;
+        /* Not placed at other renditions yet */
+        align-self: center; }
+      #root .masthead .textarea h2 {
+        font-size: 30px;
+        /* Not placed at other renditions yet */
+        color: #ffe;
+        /* Not placed at other renditions yet */
+        align-self: center; }
 
 @media (max-width: 960px) {
   #root .masthead {
-    max-width: 960px;
-    height: 600px; }
+    max-width: 960px; }
     #root .masthead h1 {
       font-size: 36px; } }
 @media (max-width: 700px) {

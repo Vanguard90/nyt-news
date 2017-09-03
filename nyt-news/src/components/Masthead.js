@@ -6,7 +6,8 @@ class Masthead extends React.Component {
 		return (
 			<div className="masthead">
 				<div className="textarea">
-					<h1>Test</h1>
+					<h1>NYT App</h1>
+					<h2>See top stories</h2>
 				</div>
 			</div>
 		)
