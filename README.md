@@ -6,3 +6,7 @@ An app that uses NYT api and React to display dynamic content
 - Uses react
 - Uses Flexbox
 - See design
+
+###TODO:
+
+- Load the incoming news data to state on App level.

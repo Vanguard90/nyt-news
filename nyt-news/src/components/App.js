@@ -1,11 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Masthead from "./Masthead";
+import NewsBox from "./NewsBox";
 
 class App extends React.Component {
 	render () {
 		return (
-			<Masthead/>
+			<div>
+				<Masthead/>
+				<NewsBox/>
+			</div>
 		)
 	}
 }
