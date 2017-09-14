@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
+import Footer from "./Footer";
 
 class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-
 			news: {}
 			
 		};
@@ -26,15 +26,26 @@ class App extends React.Component {
 	news
 	.then(data => data.json())
 	.then(data => {this.setState({ news: data.results })})
+	//.then(data.results => {addNews(data.results)})
 	.catch((err) => { console.log(err)});
 
 	}
+/*
+	addNews(data) {
 
+	const news = {...this.state.news};
+	const timestamp = Date.now();
+	news[`newsdata-${timestamp}`] = news;
+	this.setState({ news });
+
+	}
+*/
 	render () {
 		return (
 			<div>
 				<Masthead/>
 				<NewsBox/>
+				<Footer/>
 			</div>
 		)
 	}
