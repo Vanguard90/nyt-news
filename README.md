@@ -10,3 +10,4 @@ An app that uses NYT api and React to display dynamic content
 ###TODO:
 
 - Load the incoming news data to state on App level.
+- Make sure loading components have different timestamps.
