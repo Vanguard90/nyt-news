@@ -4,6 +4,11 @@ import { render } from 'react-dom';
 class NewsBox extends React.Component {
 	render () {
 		return (
+
+			<li className="menu-news">
+			This is news!
+			</li>
+/*
 			<div className="newsbox">
 				<div className="photo-thumbnail">
   					<img src="xxx.jpg" alt="news-thumbnail"/>
@@ -13,6 +18,7 @@ class NewsBox extends React.Component {
 					<p>News description</p>
 				</div>
 			</div>
+*/
 		)
 	}
 }

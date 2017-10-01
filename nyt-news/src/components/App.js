@@ -30,21 +30,18 @@ class App extends React.Component {
 	.catch((err) => { console.log(err)});
 
 	}
-/*
-	addNews(data) {
 
-	const news = {...this.state.news};
-	const timestamp = Date.now();
-	news[`newsdata-${timestamp}`] = news;
-	this.setState({ news });
-
-	}
-*/
 	render () {
 		return (
 			<div>
 				<Masthead/>
-				<NewsBox/>
+				<ul className="list-of-news">
+				{
+				Object
+				.keys(this.state.news)
+				.map( key => <NewsBox key={key} details={this.state.news[key]} />)
+				}
+				</ul>
 				<Footer/>
 			</div>
 		)
@@ -52,3 +49,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//{App.state.news.map(data => <NewsBox/>)}
