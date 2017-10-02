@@ -6,19 +6,17 @@ class NewsBox extends React.Component {
 		return (
 
 			<li className="menu-news">
-			This is news!
-			</li>
-/*
 			<div className="newsbox">
 				<div className="photo-thumbnail">
-  					<img src="xxx.jpg" alt="news-thumbnail"/>
+  					<img src={this.props.multimediaurl} alt="news-thumbnail"/>
 				</div>
 				<div className="text-section">
-					<h2> News title</h2>
-					<p>News description</p>
+					<h2>{this.props.title}</h2>
+				<p>{this.props.abstract}</p>
+				<p><a href={this.props.readurl}>Read at NYTimes</a></p>
 				</div>
 			</div>
-*/
+			</li>
 		)
 	}
 }

@@ -26,7 +26,6 @@ class App extends React.Component {
 	news
 	.then(data => data.json())
 	.then(data => {this.setState({ news: data.results })})
-	//.then(data.results => {addNews(data.results)})
 	.catch((err) => { console.log(err)});
 
 	}
@@ -39,7 +38,12 @@ class App extends React.Component {
 				{
 				Object
 				.keys(this.state.news)
-				.map( key => <NewsBox key={key} details={this.state.news[key]} />)
+				.map( key => <NewsBox 
+					title={this.state.news[key].title} 
+					abstract={this.state.news[key].abstract} 
+					readurl={this.state.news[key].url}
+					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : "abc.jpg" }
+					key={key} details={this.state.news[key]} />)
 				}
 				</ul>
 				<Footer/>
