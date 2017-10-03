@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 class NewsBox extends React.Component {
 	render () {
@@ -13,7 +12,7 @@ class NewsBox extends React.Component {
 				<div className="text-section">
 					<h2>{this.props.title}</h2>
 				<p>{this.props.abstract}</p>
-				<p><a href={this.props.readurl}>Read at NYTimes</a></p>
+				<p><a href={this.props.readurl}>Read at NYTimes >></a></p>
 				</div>
 			</div>
 			</li>
