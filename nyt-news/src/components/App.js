@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
-import logo from "../img/nyt-white-logo.jpg";
+import logoNYT from "../img/nyt-white-logo.jpg";
 
 class App extends React.Component {
 	constructor() {
@@ -42,7 +42,7 @@ class App extends React.Component {
 					title={this.state.news[key].title} 
 					abstract={this.state.news[key].abstract} 
 					readurl={this.state.news[key].url}
-					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : "/img/nyt-white-logo.jpg" }
+					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : logoNYT}
 					key={key} details={this.state.news[key]} />)
 				}
 				</ul>

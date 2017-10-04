@@ -7,14 +7,14 @@ class NewsBox extends React.Component {
 			<li className="menu-news">
 			<div className="newsbox">
 				<div className="photo-thumbnail">
-  					<img src={this.props.multimediaurl} alt="news-thumbnail"/>
+  					<img className="thumbnail-image" src={this.props.multimediaurl} alt="news-thumbnail"/>
 				</div>
 				<div className="text-section">
-					<h2>{this.props.title}</h2>
+					<h3>{this.props.title}</h3>
 				<p>{this.props.abstract}</p>
-				<p><a href={this.props.readurl}>Read at NYTimes >></a></p>
 				</div>
 			</div>
+			<p><a href={this.props.readurl}>Read at NYTimes >></a></p>
 			</li>
 		)
 	}
