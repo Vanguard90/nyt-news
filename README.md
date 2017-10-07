@@ -7,7 +7,8 @@ An app that uses NYT api and React to display dynamic content
 - Uses Flexbox
 - See design
 
-###TODO:
+###TODO
 
-- Load the incoming news data to state on App level.
-- Make sure loading components have different timestamps.
+- Top navigation:
+
+Go to NYTimes------------------Today's paper-----------------------Date/Time

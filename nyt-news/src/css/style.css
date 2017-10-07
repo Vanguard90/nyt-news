@@ -17,7 +17,10 @@ time, mark, audio, video {
 
 @font-face {
   font-family: "nyt-cheltenham";
-  src: url("/img/fonts/cheltenham/cheltenham-normal-700.ttf"); }
+  src: url("/img/fonts/cheltenham-normal-700.woff"); }
+@font-face {
+  font-family: "old-english";
+  src: url("/img/fonts/OldeEnglish.ttf"); }
 #root .masthead {
   width: 100vw;
   min-height: 10vh; }
@@ -25,18 +28,27 @@ time, mark, audio, video {
     margin: 0 auto;
     position: relative; }
     #root .masthead .textarea h1 {
-      font-size: 38px;
+      font-size: 90px;
       color: #000;
       /* Not placed at other renditions yet */
       text-align: center;
       padding: 20px;
-      font-family: "nyt-cheltenham",georgia,"times new roman",times,serif; }
+      font-weight: 700;
+      font-family: "old-english",georgia,"times new roman",times,serif;
+      visibility: hidden;
+      z-index: -99;
+      position: absolute; }
+    #root .masthead .textarea svg {
+      width: 100%;
+      padding: 20px;
+      text-align: center; }
     #root .masthead .textarea h2 {
       font-size: 20px;
       text-align: center;
       color: #000;
       /* Not placed at other renditions yet */
       padding-bottom: 20px;
+      font-weight: 700;
       font-family: "nyt-cheltenham",georgia,"times new roman",times,serif; }
 #root .list-of-news {
   width: 970px;
@@ -61,10 +73,17 @@ time, mark, audio, video {
       bottom: 0; }
     #root .list-of-news .menu-news p {
       font-size: 0.825rem;
+      color: #333;
       padding-bottom: 14px;
       line-height: 1.125rem;
       font-family: georgia,"times new roman",times,serif;
       display: inline-block; }
+    #root .list-of-news .menu-news a {
+      color: #326891; }
+    #root .list-of-news .menu-news a:hover {
+      color: #6288a5; }
+    #root .list-of-news .menu-news a:visited {
+      color: #326891; }
   #root .list-of-news .photo-thumbnail .thumbnail-image {
     margin: 0 auto 14px;
     background-size: cover;
@@ -82,18 +101,18 @@ time, mark, audio, video {
   #root .masthead {
     max-width: 960px; }
     #root .masthead h1 {
-      font-size: 38px; } }
+      font-size: 60px; } }
 @media (max-width: 700px) {
   #root .masthead {
     max-width: 960px;
     height: 300px; }
     #root .masthead h1 {
-      font-size: 38px; } }
+      font-size: 60px; } }
 @media (max-width: 450px) {
   #root .masthead {
     max-width: 960px;
     height: 300px; }
     #root .masthead h1 {
-      font-size: 38px; } }
+      font-size: 40px; } }
 
 /*# sourceMappingURL=style.css.map */

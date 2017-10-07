@@ -9,7 +9,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			news: {}		
+			news: {}	
 		};
 	}
 
@@ -43,6 +43,7 @@ class App extends React.Component {
 					abstract={this.state.news[key].abstract} 
 					readurl={this.state.news[key].url}
 					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : logoNYT}
+					publishDate = {this.state.news[key].published_date}
 					key={key} details={this.state.news[key]} />)
 				}
 				</div>

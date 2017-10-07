@@ -18,8 +18,62 @@ time, mark, audio, video {
 
 @font-face {
   font-family: "nyt-cheltenham";
-  src: url("/img/fonts/cheltenham/cheltenham-normal-700.ttf");
+  src: url("/img/fonts/cheltenham-normal-700.woff");
 }
+
+@font-face {
+  font-family: "old-english";
+  src: url("/img/fonts/OldeEnglish.ttf");
+}
+
+$black: #000;
+$gray-10: #121212;
+$gray-20: #333;
+$gray-25: #444;
+$gray-30: #666;
+$gray-35: #888;
+$gray-40: #999;
+$gray-45: #b3b3b3;
+$gray-50: #ccc;
+$gray-60: #e2e2e2;
+$gray-70: #ebebeb;
+$gray-80: #f3f3f3;
+$gray-90: #f7f7f7;
+$white: #fff;
+
+// blue - dark to light
+
+$blue-10: #004276;
+$blue-20: #326891;
+$blue-30: #6288a5;
+$blue-40: #879cb4;
+$blue-50: #f0f8fc;
+
+// red - dark to light
+
+$red-10: #a81817;
+$red-20: #d31e25;
+
+// yellow - dark to light
+
+$yellow-10: #c5a257;
+$yellow-20: #f8f8d4;
+$yellow-30: #fbfbea;
+
+// misc - dark to light
+
+$newsprint-10: #bab8b3;
+$newsprint-20: #e9ebe4;
+$newsprint-25: #f4f5f2;
+$newsprint-30: #f7f7f5;
+
+$text-color: $gray-20;
+
+$link-color: $blue-20;
+$link-hover-color: $blue-30;
+$link-visited-color: $blue-20;
+
+$insider-yellow: #fed464;
 
 #root {
 
@@ -35,12 +89,23 @@ time, mark, audio, video {
 
 
 			h1 {
-				font-size: 38px;
+				font-size: 90px;
 				color: #000; /* Not placed at other renditions yet */
 				text-align: center;
 				padding: 20px;
-				font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
+				font-weight: 700;
+				font-family: "old-english",georgia,"times new roman",times,serif;
+				visibility: hidden;
+				z-index: -99;
+				position: absolute;
 
+			}
+
+			svg {
+
+				width: 100%;
+				padding: 20px;
+				text-align: center;
 			}
 
 			h2 {
@@ -48,6 +113,7 @@ time, mark, audio, video {
 				text-align: center;
 				color: #000; /* Not placed at other renditions yet */
 				padding-bottom: 20px;
+				font-weight: 700;
 				font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
 
 			}
@@ -92,10 +158,23 @@ time, mark, audio, video {
 
 		p {
 			font-size: 0.825rem;
+			color: $gray-20;
 			padding-bottom: 14px;
 			line-height: 1.125rem;
 			font-family: georgia,"times new roman",times,serif;
 			display: inline-block;
+		}
+
+		a {
+			color: $link-color;
+		}
+
+		a:hover {
+			color: $link-hover-color;
+		}
+
+		a:visited {
+			color: $link-visited-color;
 		}
 	}
 
@@ -133,7 +212,7 @@ time, mark, audio, video {
 		max-width: 960px;
 
 		h1 {
-			font-size: 38px;
+			font-size: 60px;
 		}
 	}
 }
@@ -149,7 +228,7 @@ time, mark, audio, video {
 		height: 300px;
 
 		h1 {
-			font-size: 38px;
+			font-size: 60px;
 		}
 	}
 }
@@ -165,7 +244,7 @@ time, mark, audio, video {
 		height: 300px;
 
 		h1 {
-			font-size: 38px;
+			font-size: 40px;
 		}
 	}
 }

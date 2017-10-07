@@ -12,6 +12,7 @@ class NewsBox extends React.Component {
 				<div className="text-section">
 					<h3>{this.props.title}</h3>
 				<p>{this.props.abstract}</p>
+				<p>Published at: {this.props.publishDate} </p>
 				</div>
 			</div>
 			<div className="link-holder">
