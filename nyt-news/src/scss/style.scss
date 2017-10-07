@@ -59,22 +59,19 @@ time, mark, audio, video {
 	width: 970px;
 	margin: 0 auto;
 	position: relative;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	overflow: hidden; /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
 
 	.menu-news {
 
-		list-style: none;
-		display: flex;
-		flex-direction: column;
+		display: inline-block;
 		position: relative;
 		width: 32%;
-		min-height: 100%;
-		float: left;
+		min-height: 220px;
 		vertical-align: top;
 
 		.newsbox {
+
+			height: 100%;
 
 			.text-section {
 
@@ -88,19 +85,28 @@ time, mark, audio, video {
 			}
 
 		}
+
+		.link-holder {
+			bottom: 0;
+		}
+
 		p {
 			font-size: 0.825rem;
 			padding-bottom: 14px;
 			line-height: 1.125rem;
 			font-family: georgia,"times new roman",times,serif;
-			position: relative;
-			bottom: 0;
+			display: inline-block;
 		}
 	}
 
-	.thumbnail-image {
-		margin: 0 auto 20px;
-		display: block;
+	.photo-thumbnail {
+
+		.thumbnail-image {
+			margin: 0 auto 14px;
+			background-size: cover;
+			display: block;
+			width: 100%;
+		}
 	}
 
 	.menu-news:nth-child(3n-1) {
@@ -115,6 +121,7 @@ time, mark, audio, video {
 	.menu-news:nth-child(3n) {
 	padding-right: 1%;
 	}
+
 }
 }
 

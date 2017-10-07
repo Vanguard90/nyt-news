@@ -34,7 +34,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Masthead/>
-				<ul className="list-of-news">
+				<div className="list-of-news">
 				{
 				Object
 				.keys(this.state.news)
@@ -45,7 +45,7 @@ class App extends React.Component {
 					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : logoNYT}
 					key={key} details={this.state.news[key]} />)
 				}
-				</ul>
+				</div>
 				<Footer/>
 			</div>
 		)
