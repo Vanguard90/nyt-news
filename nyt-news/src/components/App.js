@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
+import Header from "./Header";
 import logoNYT from "../img/nyt-white-logo.jpg";
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
 	render () {
 		return (
 			<div>
+				<Header/>	
 				<Masthead/>
 				<div className="list-of-news">
 				{

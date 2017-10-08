@@ -21,6 +21,16 @@ time, mark, audio, video {
 @font-face {
   font-family: "old-english";
   src: url("/img/fonts/OldeEnglish.ttf"); }
+#root .header-holder {
+  width: 970px;
+  margin: 0 auto; }
+  #root .header-holder .header-item {
+    display: inline-block;
+    width: 33%; }
+  #root .header-holder .header-item:nth-child(3n-1) {
+    text-align: center; }
+  #root .header-holder .header-item:nth-child(3n) {
+    text-align: right; }
 #root .masthead {
   width: 100vw;
   min-height: 10vh; }
