@@ -84,7 +84,9 @@ $L-width: 970px;
 	.header-holder {
 
 		width: $L-width;
-		margin: 10px auto;
+		margin: 10px auto 0 auto;
+		padding-bottom: 10px;
+		border-bottom: 1px solid black;
 
 		.header-item {
 
@@ -111,6 +113,17 @@ $L-width: 970px;
 			.todayspaper-link:hover {
 				text-decoration: underline;
 			}
+
+			.date-time {
+			font-size: 0.6875rem;
+			line-height: 0.6875rem;
+			font-weight: 400;
+			font-style: normal;
+			font-family: "nyt-franklin",arial,helvetica,sans-serif;
+			vertical-align: middle;
+			text-decoration: none;
+			color: $black;
+		}
 		}
 
 		.header-item:nth-child(3n-1) {

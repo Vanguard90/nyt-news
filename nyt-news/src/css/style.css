@@ -23,7 +23,9 @@ time, mark, audio, video {
   src: url("/img/fonts/OldeEnglish.ttf"); }
 #root .header-holder {
   width: 970px;
-  margin: 10px auto; }
+  margin: 10px auto 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black; }
   #root .header-holder .header-item {
     display: inline-block;
     width: 33%; }
@@ -41,6 +43,15 @@ time, mark, audio, video {
       color: #000; }
     #root .header-holder .header-item .todayspaper-link:hover {
       text-decoration: underline; }
+    #root .header-holder .header-item .date-time {
+      font-size: 0.6875rem;
+      line-height: 0.6875rem;
+      font-weight: 400;
+      font-style: normal;
+      font-family: "nyt-franklin",arial,helvetica,sans-serif;
+      vertical-align: middle;
+      text-decoration: none;
+      color: #000; }
   #root .header-holder .header-item:nth-child(3n-1) {
     text-align: center; }
   #root .header-holder .header-item:nth-child(3n) {

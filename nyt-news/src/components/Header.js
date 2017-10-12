@@ -1,8 +1,74 @@
 import React from 'react';
-import TodaysPaperSVG from '../img/svg/todayspaper.svg';
 
 //Below is a functional component
-function Header(){
+class Header extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.dateCall = this.dateCall.bind(this);
+		this.state = {day: 0, month: "", year: 0};
+	}
+
+
+	componentDidMount() {
+
+	this.dateCall();
+
+	}
+
+	dateCall() {
+
+	let currentDate = new Date();
+	let day = this.setState({day: currentDate.getDate()});
+	let year = this.setState({year: currentDate.getFullYear()});
+	let month = currentDate.getMonth();
+	switch (month) {
+    case 1:
+        month = "January";
+        break;
+    case 2:
+        month = "February";
+        break;
+    case 3:
+        month = "March";
+        break;
+    case 4:
+        month = "April";
+        break;
+    case 5:
+        month = "May";
+        break;
+    case 6:
+        month = "June";
+        break;
+    case 7:
+        month = "July";
+        break;
+	case 8:
+        month = "August";
+        break;
+	case 9:
+        month = "September";
+        break;
+	case 10:
+        month = "October";
+        break;
+	case 9:
+        month = "November";
+        break;
+	case 9:
+        month = "December";
+        break;
+    }
+    this.setState({month: month});
+	}
+/*
+	fullDate() {
+
+		return `{this.state.day}`; 
+	}
+*/
+	render() {
 	return (
 		<header className="header-holder">
 		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/" target="_blank">Go to NYTimes</a></nav>
@@ -16,9 +82,10 @@ function Header(){
 </i>Today's paper
 </a>
 </nav>
-		<p className="header-item">Date & Time </p>
+		<nav className="header-item"><p className="date-time"> {this.state.day}/{this.state.month }/{this.state.year} & Time </p></nav>
 		</header>
 	)
+}
 }
 
 export default Header;

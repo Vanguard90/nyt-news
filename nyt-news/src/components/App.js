@@ -10,7 +10,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			news: {}	
+			news: {}
 		};
 		//this.timeFormat = this.timeFormat.bind(this);
 	}
@@ -20,6 +20,7 @@ class App extends React.Component {
 	this.apiCall();
 
 	}
+
 
 	apiCall() {
 
