@@ -1,7 +1,5 @@
-let apiPromise = fetch('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=3b6e4cf6acee482fb77482cfd4416c0b');
-console.log(apiPromise);
+//Add a function that will seperate the time information.
 
-apiPromise
-	.then(data => data.json())
-	.then(data => {console.log(data)})
-	.catch((err) => { console.log(err)});
+//Get time info from state.
+//Split it from 'T' word into two pieces with split
+//Update it into state in two pieces.

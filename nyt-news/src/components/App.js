@@ -12,6 +12,7 @@ class App extends React.Component {
 		this.state = {
 			news: {}	
 		};
+		//this.timeFormat = this.timeFormat.bind(this);
 	}
 
 	componentDidMount() {
@@ -28,10 +29,22 @@ class App extends React.Component {
 	.then(data => data.json())
 	.then(data => {this.setState({ news: data.results })})
 	.catch((err) => { console.log(err)});
-
+	//this.timeFormat();
 	}
+/*
+	timeFormat() {
+		for (var i = 0; i < this.state.news.length; i++) {
+			let fullDate = [];
+			fullDate[i] = this.state.news[i].updated_date;
+			let date = [];
+			date[i] = fullDate[i].split("T");
+			date[0][i] = this.setState(this.state.news[i].date);
+		}
+	}
+*/
+//timeformat not working at the moment.
 
-	render () {
+	render() {
 		return (
 			<div>
 				<Header/>	
