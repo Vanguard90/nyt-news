@@ -1,15 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
 
-class Footer extends React.Component {
-	render () {
-		return (
-			<footer>
-			<div className="footer">
-			</div>
-			</footer>
-		)
-	}
+let footer = function {
+	return (
+		<footer>
+		<div className="footer">
+		<p> Made with love by Enes Kirimi</p>
+		</div>
+		</footer>
+	)
 }
 
 export default Footer;
