@@ -6,7 +6,7 @@ class Header extends React.Component {
 	constructor(props) {
 		super(props);
 		this.dateCall = this.dateCall.bind(this);
-		this.state = {day: 0, month: "", year: 0};
+		this.state = {day: 0, month: "", year: 0, weekDay:""};
 	}
 
 
@@ -22,6 +22,7 @@ class Header extends React.Component {
 	let day = this.setState({day: currentDate.getDate()});
 	let year = this.setState({year: currentDate.getFullYear()});
 	let month = currentDate.getMonth();
+	let weekDay = currentDate.getDay();
 	switch (month) {
     case 1:
         month = "January";
@@ -60,14 +61,34 @@ class Header extends React.Component {
         month = "December";
         break;
     }
+    	switch (weekDay) {
+    case 0:
+        weekDay = "Monday";
+        break;
+    case 1:
+        weekDay = "Tuesday";
+        break;
+    case 2:
+        weekDay = "Wednesday";
+        break;
+    case 3:
+        weekDay = "Thursday";
+        break;
+    case 4:
+        weekDay = "Friday";
+        break;
+    case 5:
+        weekDay = "Saturday";
+        break;
+    case 6:
+        weekDay = "Sunday";
+        break;
+    }
     this.setState({month: month});
+    this.setState({weekDay: weekDay});
 	}
-/*
-	fullDate() {
 
-		return `{this.state.day}`; 
-	}
-*/
+
 	render() {
 	return (
 		<header className="header-holder">
@@ -82,7 +103,7 @@ class Header extends React.Component {
 </i>Today's paper
 </a>
 </nav>
-		<nav className="header-item"><p className="date-time"> {this.state.day}/{this.state.month }/{this.state.year} & Time </p></nav>
+		<nav className="header-item"><p className="date-time">{this.state.weekDay}, {this.state.day} {this.state.month }, {this.state.year}</p></nav>
 		</header>
 	)
 }

@@ -25,7 +25,7 @@ time, mark, audio, video {
   width: 970px;
   margin: 10px auto 0 auto;
   padding-bottom: 10px;
-  border-bottom: 1px solid black; }
+  border-bottom: 1px solid #444; }
   #root .header-holder .header-item {
     display: inline-block;
     width: 33%; }
@@ -51,7 +51,7 @@ time, mark, audio, video {
       font-family: "nyt-franklin",arial,helvetica,sans-serif;
       vertical-align: middle;
       text-decoration: none;
-      color: #000; }
+      color: #333; }
   #root .header-holder .header-item:nth-child(3n-1) {
     text-align: center; }
   #root .header-holder .header-item:nth-child(3n) {

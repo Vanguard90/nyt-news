@@ -86,7 +86,7 @@ $L-width: 970px;
 		width: $L-width;
 		margin: 10px auto 0 auto;
 		padding-bottom: 10px;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid $gray-25;
 
 		.header-item {
 
@@ -122,7 +122,7 @@ $L-width: 970px;
 			font-family: "nyt-franklin",arial,helvetica,sans-serif;
 			vertical-align: middle;
 			text-decoration: none;
-			color: $black;
+			color: $gray-20;
 		}
 		}
 
