@@ -83,7 +83,7 @@ $L-width: 970px;
 
 	.header-holder {
 
-		width: $L-width;
+		max-width: $L-width;
 		margin: 10px auto 0 auto;
 		padding-bottom: 10px;
 		border-bottom: 1px solid $gray-25;
@@ -91,7 +91,7 @@ $L-width: 970px;
 		.header-item {
 
 			display: inline-block;
-			width: 33%;
+			width: 32%;
 
 			i {
 
@@ -128,16 +128,24 @@ $L-width: 970px;
 
 		.header-item:nth-child(3n-1) {
 			text-align: center;
+			margin-left: 1%;
+			margin-right: 1%;
 		}
 
 		.header-item:nth-child(3n) {
 			text-align: right;
+			margin-right: 1%;
+		}
+
+		.header-item:nth-child(3n-2) {
+			margin-left: 1%;
+			text-align: left;
 		}
 	}
 
 	.masthead {
 
-		width: $L-width;
+		max-width: $L-width;
 		min-height: 10vh;
 		margin: 0 auto;
 
@@ -181,7 +189,7 @@ $L-width: 970px;
 
 .list-of-news {
 
-	width: $L-width;
+	max-width: $L-width;
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden; /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
@@ -257,8 +265,50 @@ $L-width: 970px;
 			background-size: cover;
 			display: block;
 			width: 100%;
+			max-height: 207px;
 		}
 	}
+
+}
+
+.footer {
+	border-top: 1px solid $gray-25;
+	max-width: $L-width;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 40px;
+
+	div {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		height: 100%;
+		margin-right: 1%;
+	}
+
+	p {
+		display: inline-block;
+		position: absolute;
+		font-size: 0.825rem;
+		color: $gray-20;
+		line-height: 1.125rem;
+		font-family: georgia,"times new roman",times,serif;
+		top: 40%;
+		margin-left: 1%;
+		span {
+			font-weight: 900;
+		}
+	}
+
+	.disclaimer {
+		float: right;
+	}
+}
+}
+
+@media (min-width: 601px) {
 
 	.menu-news:nth-child(3n-1) {
 		margin-left: 1%;
@@ -272,50 +322,21 @@ $L-width: 970px;
 	.menu-news:nth-child(3n) {
 	margin-right: 1%;
 	}
-
 }
 
-.footer {
-	border-top: 1px solid $gray-25;
-	width: $L-width;
-	position: relative;
-	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	height: 40px;
-
-	div {
-		display: inline-block;
-		vertical-align: middle;
-		position: relative;
-		height: 100%;
-	}
-
-	p {
-		display: inline-block;
-		position: absolute;
-		font-size: 0.825rem;
-		color: $gray-20;
-		line-height: 1.125rem;
-		font-family: georgia,"times new roman",times,serif;
-		top: 40%;
-		span {
-			font-weight: 900;
-		}
-	}
-
-	.disclaimer {
-		float: right;
-	}
-}
-}
-
-@media (max-width: 960px) {
+@media (max-width: 701px) {
 
 #root {
 
 	.masthead {
-		max-width: 960px;
+		max-width: 700px;
+
+		.textarea {
+
+			svg {
+				padding: 20px 0;
+			}
+		}
 
 		h1 {
 			font-size: 60px;
@@ -325,20 +346,47 @@ $L-width: 970px;
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 601px) {
 
 #root {
 
-	.masthead {
-		max-width: 960px;
-		height: 300px;
+.list-of-news {
 
-		h1 {
-			font-size: 60px;
+	.menu-news {
+
+		width: 48%;
+
+		.link-holder:before {
+			vertical-align: bottom;
 		}
+
+		.link-holder {
+			bottom: 0;
+			display: block;
+			vertical-align: bottom;
+			height: 100%;
+		}
+
+		p {
+			font-size: 0.825rem;
+			color: $gray-20;
+			padding-bottom: 14px;
+			line-height: 1.125rem;
+			font-family: georgia,"times new roman",times,serif;
+		}
+
+}
+	.menu-news:nth-child(2n-1) {
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+
+	.menu-news:nth-child(2n) {
+	margin-right: 1%;
 	}
 }
 
+}
 }
 
 @media (max-width: 450px) {
@@ -346,13 +394,77 @@ $L-width: 970px;
 #root {
 
 	.masthead {
-		max-width: 960px;
-		height: 300px;
 
 		h1 {
 			font-size: 40px;
 		}
 	}
+
+.list-of-news {
+
+	.menu-news {
+
+		width: 97%;
+		margin-right: 1.5%;
+		margin-left: 1.5%;
+
+}
+}
+.footer {
+	margin: 0 auto;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	position: relative;
+	overflow: auto;
+	height: 100%;
+
+	div {
+		display: block;
+		vertical-align: middle;
+		position: relative;
+		height: 100%;
+		padding-bottom: 14px;
+		margin: 0 auto;
+	}
+
+	p {
+		display: block;
+		text-align: center;
+		top: 0%;
+		position: relative;
+	}
+
+	.disclaimer {
+		text-align: center;
+		float: none;
+	}
 }
 
+}
+}
+
+@media (max-width: 320px) {
+
+#root {
+
+	.header-holder {
+
+		max-width: $L-width;
+		margin: 10px auto 0 auto;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $gray-25;
+
+		.header-item:nth-child(3n-2) {
+			width: 26%;
+		}
+
+		.header-item:nth-child(3n-1) {
+			width: 30%;
+		}
+
+		.header-item:nth-child(3n) {
+			width: 40%;
+		}
+}
+}
 }

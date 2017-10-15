@@ -22,13 +22,13 @@ time, mark, audio, video {
   font-family: "old-english";
   src: url("/img/fonts/OldeEnglish.ttf"); }
 #root .header-holder {
-  width: 970px;
+  max-width: 970px;
   margin: 10px auto 0 auto;
   padding-bottom: 10px;
   border-bottom: 1px solid #444; }
   #root .header-holder .header-item {
     display: inline-block;
-    width: 33%; }
+    width: 32%; }
     #root .header-holder .header-item i {
       vertical-align: middle;
       margin-right: 6px; }
@@ -53,11 +53,17 @@ time, mark, audio, video {
       text-decoration: none;
       color: #333; }
   #root .header-holder .header-item:nth-child(3n-1) {
-    text-align: center; }
+    text-align: center;
+    margin-left: 1%;
+    margin-right: 1%; }
   #root .header-holder .header-item:nth-child(3n) {
-    text-align: right; }
+    text-align: right;
+    margin-right: 1%; }
+  #root .header-holder .header-item:nth-child(3n-2) {
+    margin-left: 1%;
+    text-align: left; }
 #root .masthead {
-  width: 970px;
+  max-width: 970px;
   min-height: 10vh;
   margin: 0 auto; }
   #root .masthead .textarea {
@@ -87,7 +93,7 @@ time, mark, audio, video {
       font-weight: 700;
       font-family: "nyt-cheltenham",georgia,"times new roman",times,serif; }
 #root .list-of-news {
-  width: 970px;
+  max-width: 970px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -134,17 +140,11 @@ time, mark, audio, video {
     margin: 0 auto 14px;
     background-size: cover;
     display: block;
-    width: 100%; }
-  #root .list-of-news .menu-news:nth-child(3n-1) {
-    margin-left: 1%;
-    margin-right: 1%; }
-  #root .list-of-news .menu-news:nth-child(3n-2) {
-    margin-left: 1%; }
-  #root .list-of-news .menu-news:nth-child(3n) {
-    margin-right: 1%; }
+    width: 100%;
+    max-height: 207px; }
 #root .footer {
   border-top: 1px solid #444;
-  width: 970px;
+  max-width: 970px;
   position: relative;
   margin: 0 auto;
   padding-top: 20px;
@@ -154,7 +154,8 @@ time, mark, audio, video {
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    height: 100%; }
+    height: 100%;
+    margin-right: 1%; }
   #root .footer p {
     display: inline-block;
     position: absolute;
@@ -162,28 +163,91 @@ time, mark, audio, video {
     color: #333;
     line-height: 1.125rem;
     font-family: georgia,"times new roman",times,serif;
-    top: 40%; }
+    top: 40%;
+    margin-left: 1%; }
     #root .footer p span {
       font-weight: 900; }
   #root .footer .disclaimer {
     float: right; }
 
-@media (max-width: 960px) {
+@media (min-width: 601px) {
+  .menu-news:nth-child(3n-1) {
+    margin-left: 1%;
+    margin-right: 1%; }
+
+  .menu-news:nth-child(3n-2) {
+    margin-left: 1%; }
+
+  .menu-news:nth-child(3n) {
+    margin-right: 1%; } }
+@media (max-width: 701px) {
   #root .masthead {
-    max-width: 960px; }
+    max-width: 700px; }
+    #root .masthead .textarea svg {
+      padding: 20px 0; }
     #root .masthead h1 {
       font-size: 60px; } }
-@media (max-width: 700px) {
-  #root .masthead {
-    max-width: 960px;
-    height: 300px; }
-    #root .masthead h1 {
-      font-size: 60px; } }
+@media (max-width: 601px) {
+  #root .list-of-news .menu-news {
+    width: 48%; }
+    #root .list-of-news .menu-news .link-holder:before {
+      vertical-align: bottom; }
+    #root .list-of-news .menu-news .link-holder {
+      bottom: 0;
+      display: block;
+      vertical-align: bottom;
+      height: 100%; }
+    #root .list-of-news .menu-news p {
+      font-size: 0.825rem;
+      color: #333;
+      padding-bottom: 14px;
+      line-height: 1.125rem;
+      font-family: georgia,"times new roman",times,serif; }
+  #root .list-of-news .menu-news:nth-child(2n-1) {
+    margin-left: 1%;
+    margin-right: 1%; }
+  #root .list-of-news .menu-news:nth-child(2n) {
+    margin-right: 1%; } }
 @media (max-width: 450px) {
-  #root .masthead {
-    max-width: 960px;
-    height: 300px; }
-    #root .masthead h1 {
-      font-size: 40px; } }
+  #root .masthead h1 {
+    font-size: 40px; }
+  #root .list-of-news .menu-news {
+    width: 97%;
+    margin-right: 1.5%;
+    margin-left: 1.5%; }
+  #root .footer {
+    margin: 0 auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    position: relative;
+    overflow: auto;
+    height: 100%; }
+    #root .footer div {
+      display: block;
+      vertical-align: middle;
+      position: relative;
+      height: 100%;
+      padding-bottom: 14px;
+      margin: 0 auto; }
+    #root .footer p {
+      display: block;
+      text-align: center;
+      top: 0%;
+      position: relative; }
+    #root .footer .disclaimer {
+      text-align: center;
+      float: none; } }
+@media (max-width: 320px) {
+  #root .header-holder {
+    max-width: 970px;
+    margin: 10px auto 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444; }
+    #root .header-holder .header-item:nth-child(3n-2) {
+      width: 26%; }
+    #root .header-holder .header-item:nth-child(3n-1) {
+      width: 30%; }
+    #root .header-holder .header-item:nth-child(3n) {
+      width: 40%; } }
 
 /*# sourceMappingURL=style.css.map */
