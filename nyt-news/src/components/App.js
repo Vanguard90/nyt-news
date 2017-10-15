@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
@@ -12,7 +11,6 @@ class App extends React.Component {
 		this.state = {
 			news: {}
 		};
-		//this.timeFormat = this.timeFormat.bind(this);
 	}
 
 	componentDidMount() {
@@ -20,7 +18,6 @@ class App extends React.Component {
 	this.apiCall();
 
 	}
-
 
 	apiCall() {
 
@@ -30,20 +27,7 @@ class App extends React.Component {
 	.then(data => data.json())
 	.then(data => {this.setState({ news: data.results })})
 	.catch((err) => { console.log(err)});
-	//this.timeFormat();
 	}
-/*
-	timeFormat() {
-		for (var i = 0; i < this.state.news.length; i++) {
-			let fullDate = [];
-			fullDate[i] = this.state.news[i].updated_date;
-			let date = [];
-			date[i] = fullDate[i].split("T");
-			date[0][i] = this.setState(this.state.news[i].date);
-		}
-	}
-*/
-//timeformat not working at the moment.
 
 	render() {
 		return (
@@ -59,7 +43,7 @@ class App extends React.Component {
 					abstract={this.state.news[key].abstract} 
 					readurl={this.state.news[key].url}
 					multimediaurl={(this.state.news[key].multimedia.length > 0) ? (this.state.news[key].multimedia[3].url) : logoNYT}
-					publishDate = {this.state.news[key].published_date}
+					//publishDate = {this.state.news[key].published_date}
 					key={key} details={this.state.news[key]} />)
 				}
 				</div>

@@ -24,65 +24,71 @@ class Header extends React.Component {
 	let month = currentDate.getMonth();
 	let weekDay = currentDate.getDay();
 	switch (month) {
-    case 1:
+    case 0:
         month = "January";
         break;
-    case 2:
+    case 1:
         month = "February";
         break;
-    case 3:
+    case 2:
         month = "March";
         break;
-    case 4:
+    case 3:
         month = "April";
         break;
-    case 5:
+    case 4:
         month = "May";
         break;
-    case 6:
+    case 5:
         month = "June";
         break;
-    case 7:
+    case 6:
         month = "July";
         break;
-	case 8:
+	case 7:
         month = "August";
         break;
-	case 9:
+	case 8:
         month = "September";
         break;
-	case 10:
+	case 9:
         month = "October";
         break;
-	case 9:
+	case 10:
         month = "November";
         break;
-	case 9:
+	case 11:
         month = "December";
         break;
+    default:
+    	month = "";
+    	break;
     }
     	switch (weekDay) {
     case 0:
-        weekDay = "Monday";
-        break;
-    case 1:
-        weekDay = "Tuesday";
-        break;
-    case 2:
-        weekDay = "Wednesday";
-        break;
-    case 3:
-        weekDay = "Thursday";
-        break;
-    case 4:
-        weekDay = "Friday";
-        break;
-    case 5:
-        weekDay = "Saturday";
-        break;
-    case 6:
         weekDay = "Sunday";
         break;
+    case 1:
+        weekDay = "Monday";
+        break;
+    case 2:
+        weekDay = "Tuesday";
+        break;
+    case 3:
+        weekDay = "Wednesday";
+        break;
+    case 4:
+        weekDay = "Thursday";
+        break;
+    case 5:
+        weekDay = "Friday";
+        break;
+    case 6:
+        weekDay = "Saturday";
+        break;
+    default:
+   		weekDay = "";
+    	break;
     }
     this.setState({month: month});
     this.setState({weekDay: weekDay});
@@ -92,8 +98,8 @@ class Header extends React.Component {
 	render() {
 	return (
 		<header className="header-holder">
-		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/" target="_blank">Go to NYTimes</a></nav>
-		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/pages/todayspaper/index.html" target="_blank"><i className="todays-paper-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16">
+		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/" target="_blank" rel="noopener noreferrer">Go to NYTimes</a></nav>
+		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/pages/todayspaper/index.html" target="_blank" rel="noopener noreferrer"><i className="todays-paper-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16">
 <path d="M15,1H4C3.4,1,3,1.5,3,2v2.5H1c-0.5,0-1,0.4-1,1v6v1.8c0,1,0.9,1.8,2,1.8h2l0,0h8.5H15c0.5,0,1-0.5,1-1V2
 	C16,1.5,15.5,1,15,1 M15,14H4V2h11V14z"/>
 <path d="M13,5V4h-0.5H6v1"/>

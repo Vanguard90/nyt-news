@@ -1,6 +1,6 @@
 import React from 'react';
 
-let footer = function {
+let Footer = function() {
 	return (
 		<footer>
 		<div className="footer">
