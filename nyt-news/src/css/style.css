@@ -237,17 +237,12 @@ time, mark, audio, video {
     #root .footer .disclaimer {
       text-align: center;
       float: none; } }
-@media (max-width: 320px) {
-  #root .header-holder {
-    max-width: 970px;
-    margin: 10px auto 0 auto;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #444; }
-    #root .header-holder .header-item:nth-child(3n-2) {
-      width: 26%; }
-    #root .header-holder .header-item:nth-child(3n-1) {
-      width: 30%; }
-    #root .header-holder .header-item:nth-child(3n) {
-      width: 40%; } }
+@media (max-width: 400px) {
+  #root .header-holder .header-item:nth-child(3n-2) {
+    width: 26%; }
+  #root .header-holder .header-item:nth-child(3n-1) {
+    width: 30%; }
+  #root .header-holder .header-item:nth-child(3n) {
+    width: 40%; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -443,16 +443,11 @@ $L-width: 970px;
 }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
 
 #root {
 
 	.header-holder {
-
-		max-width: $L-width;
-		margin: 10px auto 0 auto;
-		padding-bottom: 10px;
-		border-bottom: 1px solid $gray-25;
 
 		.header-item:nth-child(3n-2) {
 			width: 26%;
