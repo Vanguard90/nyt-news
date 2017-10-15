@@ -2,6 +2,7 @@
   "name": "nyt-news",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.eneskirimi.com/nyt-news/",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
