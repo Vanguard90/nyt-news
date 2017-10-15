@@ -200,6 +200,7 @@ $L-width: 970px;
 		.newsbox {
 
 			height: 100%;
+			display: block;
 
 			.text-section {
 
@@ -231,11 +232,13 @@ $L-width: 970px;
 			padding-bottom: 14px;
 			line-height: 1.125rem;
 			font-family: georgia,"times new roman",times,serif;
-			display: inline-block;
 		}
 
 		a {
 			color: $link-color;
+			span {
+				font-weight: 900;
+			}
 		}
 
 		a:hover {
@@ -275,18 +278,35 @@ $L-width: 970px;
 .footer {
 	border-top: 1px solid $gray-25;
 	width: $L-width;
+	position: relative;
 	margin: 0 auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	height: 40px;
+
+	div {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		height: 100%;
+	}
 
 	p {
+		display: inline-block;
+		position: absolute;
 		font-size: 0.825rem;
 		color: $gray-20;
 		line-height: 1.125rem;
 		font-family: georgia,"times new roman",times,serif;
-		display: inline-block;
+		top: 40%;
+		span {
+			font-weight: 900;
+		}
 	}
 
+	.disclaimer {
+		float: right;
+	}
 }
 }
 

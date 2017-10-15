@@ -102,7 +102,8 @@ time, mark, audio, video {
     padding-top: 20px;
     border-top: 1px solid #b3b3b3; }
     #root .list-of-news .menu-news .newsbox {
-      height: 100%; }
+      height: 100%;
+      display: block; }
       #root .list-of-news .menu-news .newsbox .text-section h3 {
         font-size: 18px;
         padding-bottom: 14px;
@@ -120,10 +121,11 @@ time, mark, audio, video {
       color: #333;
       padding-bottom: 14px;
       line-height: 1.125rem;
-      font-family: georgia,"times new roman",times,serif;
-      display: inline-block; }
+      font-family: georgia,"times new roman",times,serif; }
     #root .list-of-news .menu-news a {
       color: #326891; }
+      #root .list-of-news .menu-news a span {
+        font-weight: 900; }
     #root .list-of-news .menu-news a:hover {
       color: #6288a5; }
     #root .list-of-news .menu-news a:visited {
@@ -143,15 +145,28 @@ time, mark, audio, video {
 #root .footer {
   border-top: 1px solid #444;
   width: 970px;
+  position: relative;
   margin: 0 auto;
   padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  height: 40px; }
+  #root .footer div {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    height: 100%; }
   #root .footer p {
+    display: inline-block;
+    position: absolute;
     font-size: 0.825rem;
     color: #333;
     line-height: 1.125rem;
     font-family: georgia,"times new roman",times,serif;
-    display: inline-block; }
+    top: 40%; }
+    #root .footer p span {
+      font-weight: 900; }
+  #root .footer .disclaimer {
+    float: right; }
 
 @media (max-width: 960px) {
   #root .masthead {

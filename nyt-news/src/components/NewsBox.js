@@ -15,7 +15,7 @@ class NewsBox extends React.Component {
 				</div>
 			</div>
 			<div className="link-holder">
-				<p className="read-at"><a href={this.props.readurl}>Read at NYTimes >></a></p>
+				<p className="read-at"><a href={this.props.readurl}><span>Read at NYTimes >></span></a></p>
 			</div>
 			</div>
 		)
