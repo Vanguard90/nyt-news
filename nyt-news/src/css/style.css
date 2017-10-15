@@ -140,6 +140,18 @@ time, mark, audio, video {
     margin-left: 1%; }
   #root .list-of-news .menu-news:nth-child(3n) {
     margin-right: 1%; }
+#root .footer {
+  border-top: 1px solid #444;
+  width: 970px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  #root .footer p {
+    font-size: 0.825rem;
+    color: #333;
+    line-height: 1.125rem;
+    font-family: georgia,"times new roman",times,serif;
+    display: inline-block; }
 
 @media (max-width: 960px) {
   #root .masthead {

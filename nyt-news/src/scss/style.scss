@@ -149,7 +149,7 @@ $L-width: 970px;
 
 			h1 {
 				font-size: 90px;
-				color: #000; /* Not placed at other renditions yet */
+				color: $black; /* Not placed at other renditions yet */
 				text-align: center;
 				padding: 20px;
 				font-weight: 700;
@@ -170,7 +170,7 @@ $L-width: 970px;
 			h2 {
 				font-size: 20px;
 				text-align: center;
-				color: #000; /* Not placed at other renditions yet */
+				color: $black; /* Not placed at other renditions yet */
 				padding-bottom: 20px;
 				font-weight: 700;
 				font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
@@ -268,6 +268,23 @@ $L-width: 970px;
 
 	.menu-news:nth-child(3n) {
 	margin-right: 1%;
+	}
+
+}
+
+.footer {
+	border-top: 1px solid $gray-25;
+	width: $L-width;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	p {
+		font-size: 0.825rem;
+		color: $gray-20;
+		line-height: 1.125rem;
+		font-family: georgia,"times new roman",times,serif;
+		display: inline-block;
 	}
 
 }
