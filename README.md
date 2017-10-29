@@ -1,14 +1,8 @@
 # nyt-news
-An app that uses NYT api and React to display dynamic content
-
-##Features
-
-- Uses react
-- Uses Flexbox
-- See design
+An app that uses NYT api and React to display dynamic and up to date news content
 
 ###TODO
 
-- Top navigation:
-
-Go to NYTimes------------------Today's paper-----------------------Date/Time
+- Tag system.
+- Filtering based on tag system.
+- As part of above points, partial loading (categorize article details).
