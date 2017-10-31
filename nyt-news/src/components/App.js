@@ -42,7 +42,7 @@ class App extends React.Component {
 					title={this.state.news[key].title} 
 					abstract={this.state.news[key].abstract} 
 					readurl={this.state.news[key].url}
-					multimediaurl={(this.state.news[key].multimedia.length > 4) ? (this.state.news[key].multimedia[4].url) : logoNYT}
+					multimediaurl={(this.state.news[key].multimedia.length > 3) ? (this.state.news[key].multimedia[3].url) : logoNYT}
 					//publishDate = {this.state.news[key].published_date}
 					key={key} details={this.state.news[key]} />)
 				}

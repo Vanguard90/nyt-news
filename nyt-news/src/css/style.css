@@ -101,7 +101,7 @@ time, mark, audio, video {
   #root .list-of-news .menu-news {
     display: inline-block;
     position: relative;
-    width: 32%;
+    width: 23%;
     min-height: 220px;
     vertical-align: top;
     overflow: hidden;
@@ -171,14 +171,17 @@ time, mark, audio, video {
     float: right; }
 
 @media (min-width: 601px) {
-  .menu-news:nth-child(3n-1) {
+  .menu-news:nth-child(4n-3) {
     margin-left: 1%;
     margin-right: 1%; }
 
-  .menu-news:nth-child(3n-2) {
-    margin-left: 1%; }
+  .menu-news:nth-child(4n-2) {
+    margin-right: 1%; }
 
-  .menu-news:nth-child(3n) {
+  .menu-news:nth-child(4n-1) {
+    margin-right: 1%; }
+
+  .menu-news:nth-child(4n) {
     margin-right: 1%; } }
 @media (max-width: 701px) {
   #root .masthead {
