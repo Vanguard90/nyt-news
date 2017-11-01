@@ -16,8 +16,10 @@ time, mark, audio, video {
   line-height: 1; }
 
 @font-face {
-  font-family: "nyt-cheltenham";
-  src: url("/img/fonts/cheltenham-normal-700.woff"); }
+  font-family: nyt-cheltenham;
+  src: url("/img/fonts/cheltenham-normal-700.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 @font-face {
   font-family: "old-english";
   src: url("/img/fonts/OldeEnglish.ttf"); }
@@ -97,9 +99,12 @@ time, mark, audio, video {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */ }
+  /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
+  display: flex;
+  flex-wrap: wrap; }
   #root .list-of-news .menu-news {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 23%;
     min-height: 220px;
@@ -120,8 +125,7 @@ time, mark, audio, video {
     #root .list-of-news .menu-news .link-holder {
       bottom: 0;
       display: block;
-      vertical-align: bottom;
-      height: 100%; }
+      vertical-align: bottom; }
     #root .list-of-news .menu-news p {
       font-size: 0.825rem;
       color: #333;
@@ -198,14 +202,7 @@ time, mark, audio, video {
     #root .list-of-news .menu-news .link-holder {
       bottom: 0;
       display: block;
-      vertical-align: bottom;
-      height: 100%; }
-    #root .list-of-news .menu-news p {
-      font-size: 0.825rem;
-      color: #333;
-      padding-bottom: 14px;
-      line-height: 1.125rem;
-      font-family: georgia,"times new roman",times,serif; }
+      vertical-align: bottom; }
   #root .list-of-news .menu-news:nth-child(2n-1) {
     margin-left: 1%;
     margin-right: 1%; }

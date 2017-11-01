@@ -17,8 +17,10 @@ time, mark, audio, video {
 }
 
 @font-face {
-  font-family: "nyt-cheltenham";
-  src: url("/img/fonts/cheltenham-normal-700.woff");
+  font-family: nyt-cheltenham;
+  	src: url("/img/fonts/cheltenham-normal-700.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -193,10 +195,13 @@ $L-width: 970px;
 	margin: 0 auto;
 	position: relative;
 	overflow: hidden; /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
+	display: flex;
+	flex-wrap: wrap;
 
 	.menu-news {
 
-		display: inline-block;
+		display: flex;
+		flex-direction: column;
 		position: relative;
 		width: 23%;
 		min-height: 220px;
@@ -231,7 +236,6 @@ $L-width: 970px;
 			bottom: 0;
 			display: block;
 			vertical-align: bottom;
-			height: 100%;
 		}
 
 		p {
@@ -369,15 +373,6 @@ $L-width: 970px;
 			bottom: 0;
 			display: block;
 			vertical-align: bottom;
-			height: 100%;
-		}
-
-		p {
-			font-size: 0.825rem;
-			color: $gray-20;
-			padding-bottom: 14px;
-			line-height: 1.125rem;
-			font-family: georgia,"times new roman",times,serif;
 		}
 
 }
