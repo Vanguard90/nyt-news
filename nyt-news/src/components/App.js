@@ -32,7 +32,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header/>	
+				<Header/>
 				<Masthead/>
 				<div className="list-of-news">
 				{
@@ -43,7 +43,7 @@ class App extends React.Component {
 					abstract={this.state.news[key].abstract} 
 					readurl={this.state.news[key].url}
 					multimediaurl={(this.state.news[key].multimedia.length > 3) ? (this.state.news[key].multimedia[3].url) : logoNYT}
-					//publishDate = {this.state.news[key].published_date}
+					section = {this.state.news[key].section}
 					key={key} details={this.state.news[key]} />)
 				}
 				</div>

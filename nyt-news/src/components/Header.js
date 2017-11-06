@@ -1,6 +1,5 @@
 import React from 'react';
 
-//Below is a functional component
 class Header extends React.Component {
 
 	constructor(props) {
@@ -109,7 +108,7 @@ class Header extends React.Component {
 </i>Today's paper
 </a>
 </nav>
-		<nav className="header-item"><p className="date-time">{this.state.weekDay}, {this.state.day} {this.state.month }, {this.state.year}</p></nav>
+		<nav className="header-item"><p className="date-time">{this.state.weekDay}, {this.state.day} {this.state.month}, {this.state.year}</p></nav>
 		</header>
 	)
 }
