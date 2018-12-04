@@ -1,7 +1,7 @@
 # nyt-news
 An app that uses NYT api and React to display dynamic and up to date news content
 
-###TODO
+### TODO
 
 - Tag system.
 - Filtering based on tag system.
