@@ -1,13 +1,13 @@
-import React from 'react';
+import  * as React  from 'react';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
 import Header from "./Header";
 import logoNYT from "../img/nyt-white-logo.jpg";
 
-class App extends React.Component {
+class App extends React.Component<{}, { news: any; sections: any; title?: any; }> {
 	constructor() {
-		super();
+		super({});
 		this.state = {
 			news: {},
 			sections: {}
@@ -62,7 +62,8 @@ let holder = Object.keys(this.state.news).map(key => this.state.news[key].sectio
 					readurl={this.state.news[key].url}
 					multimediaurl={(this.state.news[key].multimedia.length > 3) ? (this.state.news[key].multimedia[3].url) : logoNYT}
 					section = {this.state.news[key].section}
-					key={key} details={this.state.news[key]} />)
+					key={key} 
+					details={this.state.news[key]} />)
 				}
 				</div>
 				<Footer/>

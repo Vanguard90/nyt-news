@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Header extends React.Component {
+class Header extends React.Component<{}, {weekDay: string; day: number; month: string; year: number;}> {
 
 	constructor(props) {
 		super(props);
@@ -21,76 +21,78 @@ class Header extends React.Component {
 	let day = this.setState({day: currentDate.getDate()});
 	let year = this.setState({year: currentDate.getFullYear()});
 	let month = currentDate.getMonth();
-	let weekDay = currentDate.getDay();
+    let weekDay = currentDate.getDay();
+    let monthString: string;
+    let weekDayString: string;
 	switch (month) {
     case 0:
-        month = "January";
+        monthString = "January";
         break;
     case 1:
-        month = "February";
+        monthString = "February";
         break;
     case 2:
-        month = "March";
+        monthString = "March";
         break;
     case 3:
-        month = "April";
+        monthString = "April";
         break;
     case 4:
-        month = "May";
+        monthString = "May";
         break;
     case 5:
-        month = "June";
+        monthString = "June";
         break;
     case 6:
-        month = "July";
+        monthString = "July";
         break;
 	case 7:
-        month = "August";
+        monthString = "August";
         break;
 	case 8:
-        month = "September";
+        monthString = "September";
         break;
 	case 9:
-        month = "October";
+        monthString = "October";
         break;
 	case 10:
-        month = "November";
+        monthString = "November";
         break;
 	case 11:
-        month = "December";
+        monthString = "December";
         break;
     default:
-    	month = "";
+    	monthString = "";
     	break;
     }
     	switch (weekDay) {
     case 0:
-        weekDay = "Sunday";
+        weekDayString = "Sunday";
         break;
     case 1:
-        weekDay = "Monday";
+        weekDayString = "Monday";
         break;
     case 2:
-        weekDay = "Tuesday";
+        weekDayString = "Tuesday";
         break;
     case 3:
-        weekDay = "Wednesday";
+        weekDayString = "Wednesday";
         break;
     case 4:
-        weekDay = "Thursday";
+        weekDayString = "Thursday";
         break;
     case 5:
-        weekDay = "Friday";
+        weekDayString = "Friday";
         break;
     case 6:
-        weekDay = "Saturday";
+        weekDayString = "Saturday";
         break;
     default:
-   		weekDay = "";
+   		weekDayString = "";
     	break;
     }
-    this.setState({month: month});
-    this.setState({weekDay: weekDay});
+    this.setState({month: monthString});
+    this.setState({weekDay: weekDayString});
 	}
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewsBox extends React.Component {
+class NewsBox extends React.Component<{title: any; multimediaurl: any; abstract: any; readurl: any; section: any; details: any;}> {
 	render () {
 		return (
 
