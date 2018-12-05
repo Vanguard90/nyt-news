@@ -1,6 +1,15 @@
 import React from 'react';
 
-class NewsBox extends React.Component<{title: any; multimediaurl: any; abstract: any; readurl: any; section: any; details: any;}> {
+interface InewsBoxProps {
+	title: string;
+	multimediaurl: string;
+	abstract: string;
+	readurl: string;
+	section: string;
+	details: string;
+}
+
+class NewsBox extends React.Component<InewsBoxProps> {
 	render () {
 		return (
 

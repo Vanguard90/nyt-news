@@ -1,11 +1,16 @@
-import  * as React  from 'react';
+import * as React from 'react';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
 import Header from "./Header";
 import logoNYT from "../img/nyt-white-logo.jpg";
 
-class App extends React.Component<{}, { news: any; sections: any; title?: any; }> {
+interface IAppState {
+	news: any;
+	sections: any;
+}
+
+class App extends React.Component<{}, IAppState> {
 	constructor() {
 		super({});
 		this.state = {

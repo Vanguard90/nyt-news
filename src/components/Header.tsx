@@ -1,6 +1,12 @@
 import React from 'react';
 
-class Header extends React.Component<{}, {weekDay: string; day: number; month: string; year: number;}> {
+interface IHeaderState {
+    weekDay: string;
+    day: number;
+    month: string;
+    year: number;
+}
+class Header extends React.Component<{}, IHeaderState> {
 
 	constructor(props) {
 		super(props);
