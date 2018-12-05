@@ -1,4 +1,4 @@
-import  * as React  from 'react';
+import * as React from 'react';
 import Masthead from "./Masthead";
 import NewsBox from "./NewsBox";
 import Footer from "./Footer";
