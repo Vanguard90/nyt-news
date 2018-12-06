@@ -14,7 +14,6 @@ class Header extends React.Component<{}, IHeaderState> {
 		this.state = {day: 0, month: "", year: 0, weekDay:""};
 	}
 
-
 	componentDidMount() {
 
 	this.dateCall();
@@ -24,8 +23,8 @@ class Header extends React.Component<{}, IHeaderState> {
 	dateCall() {
 
 	let currentDate = new Date();
-	let day = this.setState({day: currentDate.getDate()});
-	let year = this.setState({year: currentDate.getFullYear()});
+	this.setState({day: currentDate.getDate()});
+	this.setState({year: currentDate.getFullYear()});
 	let month = currentDate.getMonth();
     let weekDay = currentDate.getDay();
     let monthString: string;
