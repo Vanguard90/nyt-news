@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "NYT App",
+  "name": "NYT new aggregation app",
   "icons": [
     {
       "src": "favicon-96x96.png",
