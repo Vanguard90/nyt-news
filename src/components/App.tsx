@@ -17,9 +17,10 @@ class App extends React.Component<{}, IAppState> {
 	constructor(p: {}) {
 		super(p);
 		this.state = {
-			news: {} as ITopStory[],
+			news: [] as ITopStory[],
 			sections: {}
 		};
+		this.renderNewsCard = this.renderNewsCard.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,6 +46,22 @@ class App extends React.Component<{}, IAppState> {
 
 	}
 
+	renderNewsCard() {
+		if (this.state && this.state.news) {
+		return	this.state.news.map((key, index) => {
+				return	<NewsCard
+						title={key.title}
+						abstract={key.abstract}
+						readurl={key.url}
+						multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
+						section={key.section}
+						key={index} />
+				}) 
+		} else {
+			return null;
+		}
+	}
+
 	render() {
 		
 		return (
@@ -53,15 +70,7 @@ class App extends React.Component<{}, IAppState> {
 				<Masthead />
 				<div className="list-of-news">
 					{
-						this.state.news.map((key, index) => {
-							<NewsCard
-								title={key.title}
-								abstract={key.abstract}
-								readurl={key.url}
-								multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
-								section={key.section}
-								key={index} />
-						})
+						this.renderNewsCard()
 					}
 				</div>
 				<Footer />
