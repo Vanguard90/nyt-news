@@ -1,19 +1,19 @@
 import React from 'react';
 
-interface InewsBoxProps {
+interface INewsCardProps {
 	title: string;
 	multimediaurl: string;
 	abstract: string;
 	readurl: string;
 	section: string;
-	details: string;
+	key: number;
 }
 
-class NewsBox extends React.Component<InewsBoxProps> {
+class NewsCard extends React.Component<INewsCardProps> {
 	render() {
 		return (
 			<div className="menu-news">
-				<div className="newsbox">
+				<div className="NewsCard">
 					<div className="photo-thumbnail">
 						<img className="thumbnail-image" src={this.props.multimediaurl} alt="news-thumbnail" />
 					</div>
@@ -31,4 +31,4 @@ class NewsBox extends React.Component<InewsBoxProps> {
 	}
 }
 
-export default NewsBox;
+export default NewsCard;

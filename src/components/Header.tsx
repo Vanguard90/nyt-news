@@ -22,13 +22,14 @@ class Header extends React.Component<{}, IHeaderState> {
 
 	dateCall() {
 
-	let currentDate = new Date();
+	const currentDate = new Date();
 	this.setState({day: currentDate.getDate()});
 	this.setState({year: currentDate.getFullYear()});
-	let month = currentDate.getMonth();
-    let weekDay = currentDate.getDay();
+	const month = currentDate.getMonth();
+    const weekDay = currentDate.getDay();
     let monthString: string;
     let weekDayString: string;
+
 	switch (month) {
     case 0:
         monthString = "January";
