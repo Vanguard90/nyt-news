@@ -2,7 +2,7 @@ import React from 'react';
 
 interface INewsCardProps {
 	title: string;
-	multimediaurl: string;
+	multimediaurl: string | any; // Can be a string or jpg
 	abstract: string;
 	readurl: string;
 	section: string;
