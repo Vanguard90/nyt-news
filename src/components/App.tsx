@@ -17,7 +17,7 @@ class App extends React.Component<{}, IAppState> {
 	constructor(p: {}) {
 		super(p);
 		this.state = {
-			news: [] as ITopStory[],
+			news: [],
 			sections: {}
 		};
 		this.renderNewsCard = this.renderNewsCard.bind(this);
@@ -46,7 +46,7 @@ class App extends React.Component<{}, IAppState> {
 
 	}
 
-	renderNewsCard() {
+	renderNewsCard(): JSX.Element[] | null {
 		if (this.state && this.state.news) {
 		return	this.state.news.map((key, index) => {
 				return	<NewsCard
@@ -63,7 +63,6 @@ class App extends React.Component<{}, IAppState> {
 	}
 
 	render() {
-		
 		return (
 			<div>
 				<Header />
