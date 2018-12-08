@@ -4,7 +4,12 @@
     "allowJs": true,
     "jsx": "preserve",
     "target": "es5",
-    "lib": ["es5", "es2015", "dom", "scripthost"],
+    "lib": [
+      "es5",
+      "es2015",
+      "dom",
+      "scripthost"
+    ],
     "skipLibCheck": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
