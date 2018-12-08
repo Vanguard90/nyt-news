@@ -1,0 +1,18 @@
+{
+    "rules": {
+        "arrow-parens": false,
+        "arrow-return-shorthand": true,
+        "class-name": true,
+        "comment-format": [
+            true,
+            "check-space"
+        ],
+        "curly": true,
+        "deprecation": {
+            "severity": "warn"
+        },
+        "eofline": true,
+        "import-spacing": true,
+        "label-position": true,
+    }
+}
