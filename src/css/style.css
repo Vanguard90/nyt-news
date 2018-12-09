@@ -112,10 +112,10 @@ time, mark, audio, video {
     overflow: hidden;
     padding-top: 20px;
     border-top: 1px solid #b3b3b3; }
-    #root .list-of-news .menu-news .newsbox {
+    #root .list-of-news .menu-news .NewsCard {
       height: 100%;
       display: block; }
-      #root .list-of-news .menu-news .newsbox .text-section h3 {
+      #root .list-of-news .menu-news .NewsCard .text-section h3 {
         font-size: 18px;
         padding-bottom: 14px;
         font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;

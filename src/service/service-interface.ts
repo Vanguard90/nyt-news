@@ -4,7 +4,7 @@ export interface ITopStories {
     section: string;
     last_updated: Date;
     num_results: number;
-    results: any[];
+    results: ITopStory[];
 }
 
 export interface ITopStory {

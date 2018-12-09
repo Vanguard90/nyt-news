@@ -1,24 +1,26 @@
 import * as React from 'react';
 import Masthead from "./Masthead";
-import NewsBox from "./NewsBox";
+import NewsCard from "./NewsCard";
 import Footer from "./Footer";
 import Header from "./Header";
 import logoNYT from "../img/nyt-white-logo.jpg";
 import * as nytRepositoryService from '../service/nyt-repository';
+import { ITopStory } from '../service/service-interface';
 
 interface IAppState {
-	news: any;
+	news: ITopStory[];
 	sections: any;
 }
 
 class App extends React.Component<{}, IAppState> {
 
-	constructor() {
-		super({});
+	constructor(p: {}) {
+		super(p);
 		this.state = {
-			news: {},
+			news: [],
 			sections: {}
 		};
+		this.renderNewsCard = this.renderNewsCard.bind(this);
 	}
 
 	componentDidMount() {
@@ -38,32 +40,39 @@ class App extends React.Component<{}, IAppState> {
 		//Update state with spesific section data so that app knows what type of sections we have and how many. Naturally reduce to an object.
 		//Use this data to populate a dynamic filter section with input tags and checkboxes. Seperate component. 
 		//Listen to these checkboxes. Call function onclick. 
-		//Look for these sections at the Newsbox components. Possible use of reference.
+		//Look for these sections at the NewsCard components. Possible use of reference.
 		//Display:none on ones that are not selected.
 		//Refresh steps 3/4/5 to update.
 
 	}
 
+	renderNewsCard(): JSX.Element[] | null {
+		if (this.state && this.state.news) {
+		return	this.state.news.map((key, index) => {
+				return	<NewsCard
+						title={key.title}
+						abstract={key.abstract}
+						readurl={key.url}
+						multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
+						section={key.section}
+						key={index} />
+				}) 
+		} else {
+			return null;
+		}
+	}
+
 	render() {
 		return (
 			<div>
-				<Header/>
-				<Masthead/>
+				<Header />
+				<Masthead />
 				<div className="list-of-news">
 					{
-						Object
-							.keys(this.state.news)
-							.map(key => <NewsBox
-								title={this.state.news[key].title}
-								abstract={this.state.news[key].abstract}
-								readurl={this.state.news[key].url}
-								multimediaurl={(this.state.news[key].multimedia.length > 3) ? (this.state.news[key].multimedia[3].url) : logoNYT}
-								section={this.state.news[key].section}
-								key={key}
-								details={this.state.news[key]} />)
+						this.renderNewsCard()
 					}
 				</div>
-				<Footer/>
+				<Footer />
 			</div>
 		)
 	}

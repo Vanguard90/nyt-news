@@ -10,66 +10,81 @@ class Header extends React.Component<{}, IHeaderState> {
 
 	constructor(props) {
 		super(props);
-		this.dateCall = this.dateCall.bind(this);
+        this.setDate = this.setDate.bind(this);
+        this.setMonth = this.setMonth.bind(this);
+        this.setDay = this.setDay.bind(this);
 		this.state = {day: 0, month: "", year: 0, weekDay:""};
 	}
 
 	componentDidMount() {
 
-	this.dateCall();
+	this.setDate();
 
 	}
 
-	dateCall() {
+	setDate(): void {
 
-	let currentDate = new Date();
+	const currentDate = new Date();
 	this.setState({day: currentDate.getDate()});
 	this.setState({year: currentDate.getFullYear()});
-	let month = currentDate.getMonth();
-    let weekDay = currentDate.getDay();
-    let monthString: string;
-    let weekDayString: string;
-	switch (month) {
-    case 0:
-        monthString = "January";
-        break;
-    case 1:
-        monthString = "February";
-        break;
-    case 2:
-        monthString = "March";
-        break;
-    case 3:
-        monthString = "April";
-        break;
-    case 4:
-        monthString = "May";
-        break;
-    case 5:
-        monthString = "June";
-        break;
-    case 6:
-        monthString = "July";
-        break;
-	case 7:
-        monthString = "August";
-        break;
-	case 8:
-        monthString = "September";
-        break;
-	case 9:
-        monthString = "October";
-        break;
-	case 10:
-        monthString = "November";
-        break;
-	case 11:
-        monthString = "December";
-        break;
-    default:
-    	monthString = "";
-    	break;
+    this.setMonth(currentDate);
+    this.setDay(currentDate);
+
     }
+    
+    setMonth(currentDate): void {
+        const month = currentDate.getMonth();
+        let monthString: string;
+        
+	switch (month) {
+        case 0:
+            monthString = "January";
+            break;
+        case 1:
+            monthString = "February";
+            break;
+        case 2:
+            monthString = "March";
+            break;
+        case 3:
+            monthString = "April";
+            break;
+        case 4:
+            monthString = "May";
+            break;
+        case 5:
+            monthString = "June";
+            break;
+        case 6:
+            monthString = "July";
+            break;
+        case 7:
+            monthString = "August";
+            break;
+        case 8:
+            monthString = "September";
+            break;
+        case 9:
+            monthString = "October";
+            break;
+        case 10:
+            monthString = "November";
+            break;
+        case 11:
+            monthString = "December";
+            break;
+        default:
+            monthString = "";
+            break;
+        }
+        this.setState({month: monthString});
+    }
+
+    setDay(currentDate): void {
+        
+    const weekDay = currentDate.getDay();
+    let weekDayString: string;
+
     	switch (weekDay) {
     case 0:
         weekDayString = "Sunday";
@@ -96,9 +111,9 @@ class Header extends React.Component<{}, IHeaderState> {
    		weekDayString = "";
     	break;
     }
-    this.setState({month: monthString});
+
     this.setState({weekDay: weekDayString});
-	}
+    }
 
 
 	render() {
