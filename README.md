@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Vanguard90/nyt-news/tree/master.svg?style=svg)](https://circleci.com/gh/Vanguard90/nyt-news/tree/master)
+
 # nyt-news
 An app that uses NYT api and React to display dynamic and up to date news content
 
