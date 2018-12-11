@@ -5,7 +5,7 @@
 
 An app that uses NYT api and React to display dynamic and up to date news content.
 
-Made with Typescript. Unit tests by Jest and Enzyme. CircleCI for continuous integration. Codecov for test coverage analysis. Anyk
+Made with Typescript. Unit tests by Jest and Enzyme. CircleCI for continuous integration. Codecov for test coverage analysis.
 
 ### TODO
 
