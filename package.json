@@ -70,9 +70,9 @@
     "react-test-renderer": "^16.6.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "start": "node scripts/start.ts",
+    "build": "node scripts/build.ts",
+    "test": "node scripts/test.ts --env=jsdom",
     "test-ci": "jest&&codecov -t b92e021f-a74b-4536-b2ee-0f596d634218"
   },
   "browserslist": [
