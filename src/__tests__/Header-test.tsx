@@ -6,6 +6,10 @@ describe('Header', () => {
     
     const constantDate = new Date('2017-06-13T04:41:20');
 
+    beforeEach(() => {
+       const test = jest.mock('../components/Header'); // Header is now a mock constructor
+    });
+
     it('contains a header tag', () => {
         expect(shallow(<Header />).find('header')).toBeTruthy();
     })
@@ -24,12 +28,10 @@ describe('Header', () => {
        expect(headerComponent.find('p').html()).toContain('Tuesday, 11 December, 2018');
     })
 
-    // it('test', () => {
-    //     const headerComponent = mount(<Header />);
-    //     const testSpy = jest.spyOn(headerComponent.instance(), 'setMonth');
-    //     console.log(testSpy);
-    // //     headerComponent.setState( { day: 11, month: "December", year: 2018, weekDay: "Tuesday"} );
-    // //    expect(headerComponent.find('p').html()).toContain('Tuesday, 11 December, 2018');
-    // })
+    it('calls componentDidMount on load', () => {
+            jest.spyOn(Header.prototype, 'componentDidMount');
+            shallow(<Header />);
+            expect(Header.prototype.componentDidMount).toHaveBeenCalled();
+    });
 
 });
