@@ -32,19 +32,19 @@ class App extends React.Component<{}, IAppState> {
 		})
 	}
 
-	sectionFilter() {
+	// sectionFilter() {
 
-		let holder = Object.keys(this.state.news).map(key => this.state.news[key].section); //This gives me an array of all sections.
+	// 	let holder = Object.keys(this.state.news).map(key => this.state.news[key].section); //This gives me an array of all sections.
 
-		//Reduce the holder to find the number of spesific sections.
-		//Update state with spesific section data so that app knows what type of sections we have and how many. Naturally reduce to an object.
-		//Use this data to populate a dynamic filter section with input tags and checkboxes. Seperate component. 
-		//Listen to these checkboxes. Call function onclick. 
-		//Look for these sections at the NewsCard components. Possible use of reference.
-		//Display:none on ones that are not selected.
-		//Refresh steps 3/4/5 to update.
+	// 	//Reduce the holder to find the number of spesific sections.
+	// 	//Update state with spesific section data so that app knows what type of sections we have and how many. Naturally reduce to an object.
+	// 	//Use this data to populate a dynamic filter section with input tags and checkboxes. Seperate component. 
+	// 	//Listen to these checkboxes. Call function onclick. 
+	// 	//Look for these sections at the NewsCard components. Possible use of reference.
+	// 	//Display:none on ones that are not selected.
+	// 	//Refresh steps 3/4/5 to update.
 
-	}
+	// }
 
 	renderNewsCard(): JSX.Element[] | null {
 		if (this.state && this.state.news) {

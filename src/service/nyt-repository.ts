@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { ITopStories } from './service-interface';
 
-
 const apikey = '3b6e4cf6acee482fb77482cfd4416c0b'
 
 export function getTopStories(): Observable<ITopStories> {
