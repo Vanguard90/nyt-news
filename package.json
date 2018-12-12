@@ -84,7 +84,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "!src/**/*.d.ts",
+      "!src/index.tsx"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
