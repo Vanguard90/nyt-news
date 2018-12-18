@@ -10,6 +10,7 @@ import { ITopStory } from '../service/service-interface';
 interface IAppState {
 	news: ITopStory[];
 	sections: any;
+	componentIsLoading: boolean;
 }
 
 class App extends React.Component<{}, IAppState> {
@@ -18,7 +19,8 @@ class App extends React.Component<{}, IAppState> {
 		super(p);
 		this.state = {
 			news: [],
-			sections: {}
+			sections: {},
+			componentIsLoading: true
 		};
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 	}
@@ -26,10 +28,11 @@ class App extends React.Component<{}, IAppState> {
 	componentDidMount() {
 
 		nytRepositoryService.getTopStories().subscribe(topStories => {
-			this.setState({ news: topStories.results })
+			this.setState({ news: topStories.results, componentIsLoading: false  });
+			// 
 		}, err => {
 			console.log('Error getting top stories! Err: ' + err);
-		})
+		});
 	}
 
 	// sectionFilter() {
@@ -48,23 +51,25 @@ class App extends React.Component<{}, IAppState> {
 
 	renderNewsCard(): JSX.Element[] | null {
 		if (this.state && this.state.news) {
-		return	this.state.news.map((key, index) => {
-				return	<NewsCard
-						title={key.title}
-						abstract={key.abstract}
-						readurl={key.url}
-						multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
-						section={key.section}
-						key={index} />
-				}) 
+			return this.state.news.map((key, index) => {
+				return <NewsCard
+					title={key.title}
+					abstract={key.abstract}
+					readurl={key.url}
+					multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
+					section={key.section}
+					key={index} />
+			})
 		} else {
 			return null;
 		}
 	}
 
 	render() {
+		const componentIsLoading = this.state.componentIsLoading;
 		return (
 			<div>
+				<div className={componentIsLoading ? "fadein" : "fadeout"}><p>Test</p></div>
 				<Header />
 				<Masthead />
 				<div className="list-of-news">
