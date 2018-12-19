@@ -26,7 +26,7 @@ describe('Header', () => {
         const headerComponent = mount(<Header />);
         headerComponent.setState( { day: 11, month: "December", year: 2018, weekDay: "Tuesday"} );
        expect(headerComponent.find('p').html()).toContain('Tuesday, 11 December, 2018');
-    })
+    }) // // Do this for all other posibilities to increase the coverage.
 
     it('calls componentDidMount on load', () => {
             jest.spyOn(Header.prototype, 'componentDidMount');
