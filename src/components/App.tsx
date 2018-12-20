@@ -6,30 +6,37 @@ import Header from "./Header";
 import logoNYT from "../img/nyt-white-logo.jpg";
 import * as nytRepositoryService from '../service/nyt-repository';
 import { ITopStory } from '../service/service-interface';
+import transparentNYTLogo from '../img/nyt-logo-png-500x500.png';
 
 interface IAppState {
 	news: ITopStory[];
 	sections: any;
+	componentIsLoading: boolean;
+	loadingScreenInDOM: boolean;
 }
 
 class App extends React.Component<{}, IAppState> {
 
-	constructor(p: {}) {
-		super(p);
+	constructor(props: {}) {
+		super(props);
 		this.state = {
 			news: [],
-			sections: {}
+			sections: {},
+			componentIsLoading: true,
+			loadingScreenInDOM: true
 		};
 		this.renderNewsCard = this.renderNewsCard.bind(this);
+		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
 	}
 
 	componentDidMount() {
 
 		nytRepositoryService.getTopStories().subscribe(topStories => {
-			this.setState({ news: topStories.results })
+			this.setState({ news: topStories.results, componentIsLoading: false });
+			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 3000); // Remove the loading screen status since we have the data
 		}, err => {
 			console.log('Error getting top stories! Err: ' + err);
-		})
+		});
 	}
 
 	// sectionFilter() {
@@ -48,15 +55,25 @@ class App extends React.Component<{}, IAppState> {
 
 	renderNewsCard(): JSX.Element[] | null {
 		if (this.state && this.state.news) {
-		return	this.state.news.map((key, index) => {
-				return	<NewsCard
-						title={key.title}
-						abstract={key.abstract}
-						readurl={key.url}
-						multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
-						section={key.section}
-						key={index} />
-				}) 
+			return this.state.news.map((key, index) => {
+				return <NewsCard
+					title={key.title}
+					abstract={key.abstract}
+					readurl={key.url}
+					multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
+					section={key.section}
+					key={index} />
+			})
+		} else {
+			return null;
+		}
+	}
+
+	renderLoadingScreen(): JSX.Element | null {
+		// Handler function that removes the redundant loading screen after loadingScreenInDOM turns false.
+		const componentIsLoading = this.state.componentIsLoading;
+		if (this.state && this.state.loadingScreenInDOM) {
+			return <div className={componentIsLoading ? "foreground-in" : "foreground-out"}><img id="nyt-foreground-icon" src={transparentNYTLogo} /></div>
 		} else {
 			return null;
 		}
@@ -65,6 +82,9 @@ class App extends React.Component<{}, IAppState> {
 	render() {
 		return (
 			<div>
+				{
+					this.renderLoadingScreen()
+				}
 				<Header />
 				<Masthead />
 				<div className="list-of-news">

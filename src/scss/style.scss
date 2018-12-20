@@ -11,26 +11,27 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    line-height: 1;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	line-height: 1;
 }
 
 @font-face {
-  font-family: nyt-cheltenham;
-  	src: url("/img/fonts/cheltenham-normal-700.ttf") format('truetype');
-  font-weight: normal;
-  font-style: normal;
+	font-family: nyt-cheltenham;
+	src: url("/img/fonts/cheltenham-normal-700.ttf") format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: "old-english";
-  src: url("/img/fonts/OldeEnglish.ttf");
+	font-family: "old-english";
+	src: url("/img/fonts/OldeEnglish.ttf");
 }
 
 $black: #000;
 $gray-10: #121212;
-$gray-20: #333;
+$gray-20: rgba(51,51,51,1); // #333
+$gray-20-invisible: rgba(51,51,51,0);
 $gray-25: #444;
 $gray-30: #666;
 $gray-35: #888;
@@ -80,8 +81,56 @@ $insider-yellow: #fed464;
 //Color area end
 
 $L-width: 970px;
+$transition-delay: 0.5s;
+$transition-duration: 1s;
 
 #root {
+
+	#nyt-foreground-icon {
+		border: 1px solid $gray-20;
+		border-radius: 50%;
+		position: absolute;
+		animation: border-animation 0.75s infinite;
+	}
+
+	@keyframes border-animation {
+		from {padding: 0px; border-color: $gray-20}
+		to {padding: 50px; margin: -50px; border-color: $gray-20-invisible}
+	}
+
+	.foreground-in {
+		width: 100%;
+		height: 100%;
+		background: white;
+		position: absolute;
+		opacity: 1;
+		z-index: 90;
+
+		img {
+			max-width: 16%;
+			max-height: 16%;
+			top: 46%;
+			left: 47%;
+		}
+	}
+
+	.foreground-out {
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		opacity: 0;
+		position: absolute;
+		transition: opacity $transition-duration linear $transition-delay, background $transition-duration linear $transition-delay;
+		z-index: 90;
+
+		img {
+			transition: all $transition-duration linear $transition-delay;
+			max-width: 16%;
+			max-height: 16%;
+			top: 46%;
+			left: 47%;
+		}
+	}
 
 	.header-holder {
 
@@ -106,7 +155,7 @@ $L-width: 970px;
 				line-height: 0.6875rem;
 				font-weight: 400;
 				font-style: normal;
-				font-family: "nyt-franklin",arial,helvetica,sans-serif;
+				font-family: "nyt-franklin", arial, helvetica, sans-serif;
 				vertical-align: middle;
 				text-decoration: none;
 				color: $black;
@@ -117,15 +166,15 @@ $L-width: 970px;
 			}
 
 			.date-time {
-			font-size: 0.6875rem;
-			line-height: 0.6875rem;
-			font-weight: 400;
-			font-style: normal;
-			font-family: "nyt-franklin",arial,helvetica,sans-serif;
-			vertical-align: middle;
-			text-decoration: none;
-			color: $gray-20;
-		}
+				font-size: 0.6875rem;
+				line-height: 0.6875rem;
+				font-weight: 400;
+				font-style: normal;
+				font-family: "nyt-franklin", arial, helvetica, sans-serif;
+				vertical-align: middle;
+				text-decoration: none;
+				color: $gray-20;
+			}
 		}
 
 		.header-item:nth-child(3n-1) {
@@ -159,11 +208,12 @@ $L-width: 970px;
 
 			h1 {
 				font-size: 90px;
-				color: $black; /* Not placed at other renditions yet */
+				color: $black;
+				/* Not placed at other renditions yet */
 				text-align: center;
 				padding: 20px;
 				font-weight: 700;
-				font-family: "old-english",georgia,"times new roman",times,serif;
+				font-family: "old-english", georgia, "times new roman", times, serif;
 				visibility: hidden;
 				z-index: -99;
 				position: absolute;
@@ -180,136 +230,140 @@ $L-width: 970px;
 			h2 {
 				font-size: 20px;
 				text-align: center;
-				color: $black; /* Not placed at other renditions yet */
+				color: $black;
+				/* Not placed at other renditions yet */
 				padding-bottom: 20px;
 				font-weight: 700;
-				font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
+				font-family: "nyt-cheltenham", georgia, "times new roman", times, serif;
 
 			}
 		}
 	}
 
-.list-of-news {
+	.list-of-news {
 
-	max-width: $L-width;
-	margin: 0 auto;
-	position: relative;
-	overflow: hidden; /* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
-	display: flex;
-	flex-wrap: wrap;
-
-	.menu-news {
-
-		display: flex;
-		flex-direction: column;
+		max-width: $L-width;
+		margin: 0 auto;
 		position: relative;
-		width: 23%;
-		min-height: 220px;
-		vertical-align: top;
 		overflow: hidden;
-		padding-top: 20px;
-		border-top: 1px solid $gray-45;
+		/* This is a trick! I*'m not hiding anything but browsers need to calculate the height of the block to actually hide something, so they calculate the content instead. */
+		display: flex;
+		flex-wrap: wrap;
 
-		.NewsCard {
+		.menu-news {
 
-			height: 100%;
-			display: block;
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			width: 23%;
+			min-height: 220px;
+			vertical-align: top;
+			overflow: hidden;
+			padding-top: 20px;
+			border-top: 1px solid $gray-45;
 
-			.text-section {
+			.NewsCard {
 
-				h3 {
+				height: 100%;
+				display: block;
 
-					font-size: 18px;
-					padding-bottom: 14px;
-					font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
-					line-height: 1.75rem;
+				.text-section {
+
+					h3 {
+
+						font-size: 18px;
+						padding-bottom: 14px;
+						font-family: "nyt-cheltenham", georgia, "times new roman", times, serif;
+						line-height: 1.75rem;
+					}
+				}
+
+			}
+
+			.link-holder:before {
+				vertical-align: bottom;
+			}
+
+			.link-holder {
+				bottom: 0;
+				display: block;
+				vertical-align: bottom;
+			}
+
+			p {
+				font-size: 0.825rem;
+				color: $gray-20;
+				padding-bottom: 14px;
+				line-height: 1.125rem;
+				font-family: georgia, "times new roman", times, serif;
+			}
+
+			a {
+				color: $link-color;
+
+				span {
+					font-weight: 900;
 				}
 			}
 
+			a:hover {
+				color: $link-hover-color;
+			}
+
+			a:visited {
+				color: $link-visited-color;
+			}
 		}
 
-		.link-holder:before {
-			vertical-align: bottom;
+		.photo-thumbnail {
+
+			.thumbnail-image {
+				margin: 0 auto 14px;
+				background-size: cover;
+				display: block;
+				width: 100%;
+				max-height: 207px;
+			}
 		}
 
-		.link-holder {
-			bottom: 0;
-			display: block;
-			vertical-align: bottom;
+	}
+
+	.footer {
+		border-top: 1px solid $gray-25;
+		max-width: $L-width;
+		position: relative;
+		margin: 0 auto;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		height: 40px;
+
+		div {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			height: 100%;
+			margin-right: 1%;
 		}
 
 		p {
+			display: inline-block;
+			position: absolute;
 			font-size: 0.825rem;
 			color: $gray-20;
-			padding-bottom: 14px;
 			line-height: 1.125rem;
-			font-family: georgia,"times new roman",times,serif;
-		}
+			font-family: georgia, "times new roman", times, serif;
+			top: 40%;
+			margin-left: 1%;
 
-		a {
-			color: $link-color;
 			span {
 				font-weight: 900;
 			}
 		}
 
-		a:hover {
-			color: $link-hover-color;
-		}
-
-		a:visited {
-			color: $link-visited-color;
+		.disclaimer {
+			float: right;
 		}
 	}
-
-	.photo-thumbnail {
-
-		.thumbnail-image {
-			margin: 0 auto 14px;
-			background-size: cover;
-			display: block;
-			width: 100%;
-			max-height: 207px;
-		}
-	}
-
-}
-
-.footer {
-	border-top: 1px solid $gray-25;
-	max-width: $L-width;
-	position: relative;
-	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	height: 40px;
-
-	div {
-		display: inline-block;
-		vertical-align: middle;
-		position: relative;
-		height: 100%;
-		margin-right: 1%;
-	}
-
-	p {
-		display: inline-block;
-		position: absolute;
-		font-size: 0.825rem;
-		color: $gray-20;
-		line-height: 1.125rem;
-		font-family: georgia,"times new roman",times,serif;
-		top: 40%;
-		margin-left: 1%;
-		span {
-			font-weight: 900;
-		}
-	}
-
-	.disclaimer {
-		float: right;
-	}
-}
 }
 
 @media (min-width: 601px) {
@@ -320,146 +374,148 @@ $L-width: 970px;
 	}
 
 	.menu-news:nth-child(4n-2) {
-	margin-right: 1%;
+		margin-right: 1%;
 	}
 
 	.menu-news:nth-child(4n-1) {
-	margin-right: 1%;
+		margin-right: 1%;
 
 	}
 
 	.menu-news:nth-child(4n) {
-	margin-right: 1%;
+		margin-right: 1%;
 	}
 }
 
 @media (max-width: 701px) {
 
-#root {
+	#root {
 
-	.masthead {
-		max-width: 700px;
+		.masthead {
+			max-width: 700px;
 
-		.textarea {
+			.textarea {
 
-			svg {
-				padding: 20px 0;
+				svg {
+					padding: 20px 0;
+				}
+			}
+
+			h1 {
+				font-size: 60px;
 			}
 		}
-
-		h1 {
-			font-size: 60px;
-		}
 	}
-}
 
 }
 
 @media (max-width: 601px) {
 
-#root {
+	#root {
 
-.list-of-news {
+		.list-of-news {
 
-	.menu-news {
+			.menu-news {
 
-		width: 48%;
+				width: 48%;
 
-		.link-holder:before {
-			vertical-align: bottom;
+				.link-holder:before {
+					vertical-align: bottom;
+				}
+
+				.link-holder {
+					bottom: 0;
+					display: block;
+					vertical-align: bottom;
+				}
+
+			}
+
+			.menu-news:nth-child(2n-1) {
+				margin-left: 1%;
+				margin-right: 1%;
+			}
+
+			.menu-news:nth-child(2n) {
+				margin-right: 1%;
+			}
 		}
 
-		.link-holder {
-			bottom: 0;
-			display: block;
-			vertical-align: bottom;
-		}
-
-}
-	.menu-news:nth-child(2n-1) {
-		margin-left: 1%;
-		margin-right: 1%;
 	}
-
-	.menu-news:nth-child(2n) {
-	margin-right: 1%;
-	}
-}
-
-}
 }
 
 @media (max-width: 450px) {
 
-#root {
+	#root {
 
-	.masthead {
+		.masthead {
 
-		h1 {
-			font-size: 40px;
+			h1 {
+				font-size: 40px;
+			}
 		}
+
+		.list-of-news {
+
+			.menu-news {
+
+				width: 97%;
+				margin-right: 1.5%;
+				margin-left: 1.5%;
+
+			}
+		}
+
+		.footer {
+			margin: 0 auto;
+			padding-top: 14px;
+			padding-bottom: 14px;
+			position: relative;
+			overflow: auto;
+			height: 100%;
+
+			div {
+				display: block;
+				vertical-align: middle;
+				position: relative;
+				height: 100%;
+				padding-bottom: 14px;
+				margin: 0 auto;
+			}
+
+			p {
+				display: block;
+				text-align: center;
+				top: 0%;
+				position: relative;
+			}
+
+			.disclaimer {
+				text-align: center;
+				float: none;
+			}
+		}
+
 	}
-
-.list-of-news {
-
-	.menu-news {
-
-		width: 97%;
-		margin-right: 1.5%;
-		margin-left: 1.5%;
-
-}
-}
-.footer {
-	margin: 0 auto;
-	padding-top: 14px;
-	padding-bottom: 14px;
-	position: relative;
-	overflow: auto;
-	height: 100%;
-
-	div {
-		display: block;
-		vertical-align: middle;
-		position: relative;
-		height: 100%;
-		padding-bottom: 14px;
-		margin: 0 auto;
-	}
-
-	p {
-		display: block;
-		text-align: center;
-		top: 0%;
-		position: relative;
-	}
-
-	.disclaimer {
-		text-align: center;
-		float: none;
-	}
-}
-
-}
 }
 
 @media (max-width: 400px) {
 
-#root {
+	#root {
 
-	.header-holder {
+		.header-holder {
 
-		.header-item:nth-child(3n-2) {
-			width: 26%;
+			.header-item:nth-child(3n-2) {
+				width: 26%;
+			}
+
+			.header-item:nth-child(3n-1) {
+				width: 30%;
+			}
+
+			.header-item:nth-child(3n) {
+				width: 40%;
+			}
 		}
-
-		.header-item:nth-child(3n-1) {
-			width: 30%;
-		}
-
-		.header-item:nth-child(3n) {
-			width: 40%;
-		}
-}
-}
+	}
 }
