@@ -30,7 +30,8 @@ time, mark, audio, video {
 
 $black: #000;
 $gray-10: #121212;
-$gray-20: #333;
+$gray-20: rgba(51,51,51,1); // #333
+$gray-20-invisible: rgba(51,51,51,0);
 $gray-25: #444;
 $gray-30: #666;
 $gray-35: #888;
@@ -93,8 +94,8 @@ $transition-duration: 1s;
 	}
 
 	@keyframes border-animation {
-		from {padding: 0px;}
-		to {padding: 50px; margin: -50px;}
+		from {padding: 0px; border-color: $gray-20}
+		to {padding: 50px; margin: -50px; border-color: $gray-20-invisible}
 	}
 
 	.foreground-in {
