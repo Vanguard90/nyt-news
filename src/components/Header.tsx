@@ -11,28 +11,27 @@ class Header extends React.Component<{}, IHeaderState> {
 	constructor(props) {
 		super(props);
         this.setDate = this.setDate.bind(this);
-        this.setMonthFn = this.setMonthFn.bind(this);
+        this.setMonth = this.setMonth.bind(this);
         this.setDay = this.setDay.bind(this);
 		this.state = {day: 0, month: "", year: 0, weekDay:""};
 	}
 
 	componentDidMount() {
 
-	this.setDate();
+	    this.setDate();
 
 	}
 
 	setDate(): void {
 
-	const currentDate = new Date();
-	this.setState({day: currentDate.getDate()});
-	this.setState({year: currentDate.getFullYear()});
-    this.setMonthFn(currentDate);
-    this.setDay(currentDate);
-
+	    const currentDate = new Date();
+	    this.setState({day: currentDate.getDate()});
+	    this.setState({year: currentDate.getFullYear()});
+        this.setMonth(currentDate);
+        this.setDay(currentDate);
     }
     
-    setMonthFn = (currentDate): void => {
+    setMonth(currentDate): void {
         const month = currentDate.getMonth();
         let monthString: string;
         
