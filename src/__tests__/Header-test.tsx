@@ -2,10 +2,9 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Header from '../components/Header';
 
-
 function mockCurrentDate(dateToUse: string): void {
-    const DATE_TO_USE = new Date(dateToUse);
-    const _Date = Date;
+    let DATE_TO_USE = new Date(dateToUse);
+    let _Date = Date;
     // @ts-ignore -- Next line gives an error but it doesn't have to actually work correctly!
     global.Date = jest.fn(() => DATE_TO_USE); 
     global.Date.UTC = _Date.UTC;
@@ -13,12 +12,18 @@ function mockCurrentDate(dateToUse: string): void {
     global.Date.now = _Date.now;
 }
 
+// jest.spyOn(Date, 'now').mockImplementation(() => 1479427200000)
+
 describe('Header', () => {
 
-    const headerComponent = shallow(<Header />);
+    let headerComponent = shallow(<Header />);
 
     beforeEach(() => {
-    });
+    })
+
+    afterEach(() => {
+     //   headerComponent.unmount();
+      });
 
     it('contains a header tag', () => {
         expect(shallow(<Header />).find('header')).toBeTruthy();
@@ -105,6 +110,12 @@ describe('Header', () => {
         jest.spyOn(Header.prototype, 'componentDidMount');
         shallow(<Header />);
         expect(Header.prototype.componentDidMount).toHaveBeenCalled();
+    });
+
+    it('calls setDate function', () => {
+        jest.spyOn(Header.prototype, 'setDate');
+        shallow(<Header />);
+        expect(Header.prototype.setDate).toHaveBeenCalled();
     });
 
 });
