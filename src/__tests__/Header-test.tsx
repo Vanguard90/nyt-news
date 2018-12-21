@@ -2,13 +2,22 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Header from '../components/Header';
 
+
+function mockCurrentDate(dateToUse: string): void {
+    const DATE_TO_USE = new Date(dateToUse);
+    const _Date = Date;
+    // @ts-ignore -- Next line gives an error but it doesn't have to actually work correctly!
+    global.Date = jest.fn(() => DATE_TO_USE); 
+    global.Date.UTC = _Date.UTC;
+    global.Date.parse = _Date.parse;
+    global.Date.now = _Date.now;
+}
+
 describe('Header', () => {
 
-    const constantDate = new Date('2017-06-13T04:41:20');
     const headerComponent = shallow(<Header />);
 
     beforeEach(() => {
-        const test = jest.mock('../components/Header'); // Header is now a mock constructor
     });
 
     it('contains a header tag', () => {
@@ -24,47 +33,55 @@ describe('Header', () => {
     })
 
     it('displays correct date for January & Monday', () => {
-
+        mockCurrentDate('2018-01-01T04:41:20');
         headerComponent.setState({ day: 1, month: "January", year: 2018, weekDay: "Monday" });
         expect(headerComponent.find('p').html()).toContain('Monday, 1 January, 2018');
     })
 
     it('displays correct date for February & Wednesday', () => {
+        mockCurrentDate('2018-02-07T04:45:20');
         headerComponent.setState({ day: 7, month: "February", year: 2018, weekDay: "Wednesday" });
         expect(headerComponent.find('p').html()).toContain('Wednesday, 7 February, 2018');
     })
 
     it('displays correct date for March & Thursday', () => {
+        mockCurrentDate('2018-03-01T01:41:20');
         headerComponent.setState({ day: 1, month: "March", year: 2018, weekDay: "Thursday" });
         expect(headerComponent.find('p').html()).toContain('Thursday, 1 March, 2018');
     })
 
     it('displays correct date for April & Friday', () => {
+        mockCurrentDate('2018-04-06T01:41:20');
         headerComponent.setState({ day: 6, month: "April", year: 2018, weekDay: "Friday" });
         expect(headerComponent.find('p').html()).toContain('Friday, 6 April, 2018');
     })
 
     it('displays correct date for May & Saturday', () => {
+        mockCurrentDate('2018-05-05T01:41:20');
         headerComponent.setState({ day: 5, month: "May", year: 2018, weekDay: "Saturday" });
         expect(headerComponent.find('p').html()).toContain('Saturday, 5 May, 2018');
     })
 
     it('displays correct date for June & Sunday', () => {
+        mockCurrentDate('2018-06-03T01:41:20');
         headerComponent.setState({ day: 3, month: "June", year: 2018, weekDay: "Sunday" });
         expect(headerComponent.find('p').html()).toContain('Sunday, 3 June, 2018');
     })
 
     it('displays correct date for July', () => {
+        mockCurrentDate('2018-07-01T01:41:20');
         headerComponent.setState({ day: 1, month: "July", year: 2018, weekDay: "Sunday" });
         expect(headerComponent.find('p').html()).toContain('Sunday, 1 July, 2018');
     })
 
     it('displays correct date for August', () => {
+        mockCurrentDate('2018-08-05T01:41:20');
         headerComponent.setState({ day: 5, month: "August", year: 2018, weekDay: "Sunday" });
         expect(headerComponent.find('p').html()).toContain('Sunday, 5 August, 2018');
     })
 
     it('displays correct date for September', () => {
+        mockCurrentDate('2018-09-02T01:41:20');
         headerComponent.setState({ day: 2, month: "September", year: 2018, weekDay: "Sunday" });
         expect(headerComponent.find('p').html()).toContain('Sunday, 2 September, 2018');
     })
