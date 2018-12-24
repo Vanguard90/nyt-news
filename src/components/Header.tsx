@@ -31,7 +31,7 @@ class Header extends React.Component<{}, IHeaderState> {
         this.setDay(currentDate);
     }
     
-    setMonth(currentDate): void {
+    setMonth(currentDate: Date): void {
         const month = currentDate.getMonth();
         let monthString: string;
         
@@ -79,7 +79,7 @@ class Header extends React.Component<{}, IHeaderState> {
         this.setState({month: monthString});
     }
 
-    setDay(currentDate): void {
+    setDay(currentDate: Date): void {
         
     const weekDay = currentDate.getDay();
     let weekDayString: string;
