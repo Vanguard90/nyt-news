@@ -17,9 +17,7 @@ class Header extends React.Component<{}, IHeaderState> {
 	}
 
 	componentDidMount() {
-
 	    this.setDate();
-
 	}
 
 	setDate(): void {
@@ -33,7 +31,7 @@ class Header extends React.Component<{}, IHeaderState> {
     
     setMonth(currentDate: Date): void {
         const month = currentDate.getMonth();
-        let monthString: string;
+        let monthString = "";
         
 	switch (month) {
         case 0:
@@ -72,9 +70,6 @@ class Header extends React.Component<{}, IHeaderState> {
         case 11:
             monthString = "December";
             break;
-        default:
-            monthString = "";
-            break;
         }
         this.setState({month: monthString});
     }
@@ -82,7 +77,7 @@ class Header extends React.Component<{}, IHeaderState> {
     setDay(currentDate: Date): void {
         
     const weekDay = currentDate.getDay();
-    let weekDayString: string;
+    let weekDayString = "";
 
     	switch (weekDay) {
     case 0:
@@ -106,9 +101,6 @@ class Header extends React.Component<{}, IHeaderState> {
     case 6:
         weekDayString = "Saturday";
         break;
-    default:
-   		weekDayString = "";
-    	break;
     }
 
     this.setState({weekDay: weekDayString});

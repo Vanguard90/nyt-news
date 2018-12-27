@@ -16,9 +16,16 @@ describe('App', () => {
     it('contains Footer component', () => {
         expect(mount(<App />).find('Footer').length).toBe(1);
     })
+
     it('creates a new NewsCard component if correct data is in state', () => {
         const app = mount(<App />);
         app.setState({ news: topStoriesMock.results });
         expect(app.find('NewsCard').length).toBe(5);
+    })
+
+    it('does not create a newsCard component when state is not set', () => {
+        const app = shallow(<App />);
+        app.setState({ news: [] });
+        expect(app.find('NewsCard').length).toBe(0);
     })
 });
