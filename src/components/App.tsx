@@ -27,6 +27,7 @@ class App extends React.Component<{}, IAppState> {
 		};
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
+		this.renderMasthead = this.renderMasthead.bind(this);
 	}
 
 	componentDidMount() {
@@ -35,23 +36,9 @@ class App extends React.Component<{}, IAppState> {
 			this.setState({ news: topStories.results, componentIsLoading: false });
 			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 3000); // Remove the loading screen status since we have the data
 		}, err => {
-			console.log('Error getting top stories! Err: ' + err);
+			console.error('Error getting top stories! Err: ' + err);
 		});
 	}
-
-	// sectionFilter() {
-
-	// 	let holder = Object.keys(this.state.news).map(key => this.state.news[key].section); //This gives me an array of all sections.
-
-	// 	//Reduce the holder to find the number of spesific sections.
-	// 	//Update state with spesific section data so that app knows what type of sections we have and how many. Naturally reduce to an object.
-	// 	//Use this data to populate a dynamic filter section with input tags and checkboxes. Seperate component. 
-	// 	//Listen to these checkboxes. Call function onclick. 
-	// 	//Look for these sections at the NewsCard components. Possible use of reference.
-	// 	//Display:none on ones that are not selected.
-	// 	//Refresh steps 3/4/5 to update.
-
-	// }
 
 	renderNewsCard(): JSX.Element[] | null {
 		if (this.state && this.state.news) {
@@ -79,6 +66,16 @@ class App extends React.Component<{}, IAppState> {
 		}
 	}
 
+	renderMasthead(): JSX.Element | null {
+		if (this.state && this.state.news !== []) {
+			return <Masthead news={this.state.news} key={'masthead' + this.state.news.toString()}/>;
+			// Why use a key instead of some lifecycle method like componentWill ReceiveProps at the children?
+			// componentWillReceiveProps will be depreciated at React 17 and key is a quick way of re-rendering the child compoennt on change
+		} else {
+			return null;
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -86,7 +83,7 @@ class App extends React.Component<{}, IAppState> {
 					this.renderLoadingScreen()
 				}
 				<Header />
-				<Masthead />
+				{ this.renderMasthead() }
 				<div className="list-of-news">
 					{
 						this.renderNewsCard()

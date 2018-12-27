@@ -1,7 +1,18 @@
 import React from 'react';
 import NYTimesMainLogo from '../img/svg/nyt-logo-379x64.svg';
+import { ITopStory } from '../service/service-interface';
 
-class Masthead extends React.Component {
+interface IMastheadData {
+	news: ITopStory[];
+}
+
+class Masthead extends React.Component<IMastheadData, IMastheadData> {
+
+	constructor(props: IMastheadData) {
+		super(props);
+		console.log(props);
+	}
+	
 	render() {
 		return (
 			<div className="masthead">
