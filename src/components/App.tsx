@@ -34,7 +34,7 @@ class App extends React.Component<{}, IAppState> {
 
 		nytRepositoryService.getTopStories().subscribe(topStories => {
 			this.setState({ news: topStories.results, componentIsLoading: false });
-			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 3000); // Remove the loading screen status since we have the data
+			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 1500); // Remove the loading screen status since we have the data
 		}, err => {
 			console.error('Error getting top stories! Err: ' + err);
 		});
