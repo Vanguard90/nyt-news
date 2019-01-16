@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "compileOnSave": false,
     "outDir": "./build",
     "allowJs": true,
     "jsx": "preserve",
