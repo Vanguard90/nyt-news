@@ -1,7 +1,7 @@
 import React from 'react';
 import logoAPI from "../img/nyt-api-data-logo.png";
 
-let Footer = function () {
+const Footer = function () {
 	return (
 		<footer>
 			<div className="footer">
