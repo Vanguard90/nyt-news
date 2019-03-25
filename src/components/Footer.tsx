@@ -1,5 +1,7 @@
 import React from 'react';
-import logoAPI from "../img/nyt-api-data-logo.png";
+// import logoAPI from "../img/nyt-api-data-logo.png";
+
+const logoAPI = require('../img/nyt-api-data-logo.png');
 
 const Footer = function () {
 	return (

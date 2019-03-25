@@ -3,11 +3,13 @@ import Masthead from "./Masthead";
 import NewsCard from "./NewsCard";
 import Footer from "./Footer";
 import Header from "./Header";
-import logoNYT from "../img/nyt-white-logo.jpg";
+// import logoNYT from "../img/nyt-white-logo.jpg";
 import * as nytRepositoryService from '../service/nyt-repository';
 import { ITopStory } from '../service/service-interface';
-import transparentNYTLogo from '../img/nyt-logo-png-500x500.png';
+// import transparentNYTLogo from '../img/nyt-logo-png-500x500.png';
 
+const logoNYT = require('../img/nyt-white-logo.jpg');
+const transparentNYTLogo = require('../img/nyt-logo-png-500x500.png');
 interface IAppState {
 	news: ITopStory[];
 	sections: any;

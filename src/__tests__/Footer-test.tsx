@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Footer from '../components/Footer';
-import logoAPI from "../img/nyt-api-data-logo.png";
+// import logoAPI from "../img/nyt-api-data-logo.png";
 
+const logoAPI = require('../img/nyt-api-data-logo.png');
 
 describe('Footer', () => {
 

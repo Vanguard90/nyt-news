@@ -2,20 +2,21 @@
   "compilerOptions": {
     "outDir": "./build",
     "allowJs": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "target": "es5",
     "lib": [
       "es5",
       "es2015",
       "dom",
-      "scripthost"
+      "scripthost",
+      "esnext"
     ],
     "skipLibCheck": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "noImplicitAny": false,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "noUnusedLocals": false,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
@@ -26,9 +27,6 @@
     "isolatedModules": true
   },
   "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./src/scripts/*"
+    "./src/*"
   ]
 }
