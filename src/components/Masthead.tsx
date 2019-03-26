@@ -1,6 +1,8 @@
 import React from 'react';
-import NYTimesMainLogo from '../img/svg/nyt-logo-379x64.svg';
 import { ITopStory } from '../service/service-interface';
+// import NYTimesMainLogo from '../img/svg/nyt-logo-379x64.svg';
+
+const NYTimesMainLogo = require('../img/svg/nyt-logo-379x64.svg');
 
 class Masthead extends React.Component<{ news: ITopStory[] }, { news: ITopStory[], value: any }> {
 

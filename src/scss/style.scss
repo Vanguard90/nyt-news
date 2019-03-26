@@ -94,7 +94,7 @@ $transition-duration: 0.75s;
 	}
 
 	@keyframes border-animation {
-		from {padding: 0px; border-color: $gray-20}
+		from {padding: -50px; margin: 50; border-color: $gray-20}
 		to {padding: 50px; margin: -50px; border-color: $gray-20-invisible}
 	}
 

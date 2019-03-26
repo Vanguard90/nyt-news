@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import App from '../components/App';
-import topStoriesMock from './mocks/top-story-mock.json';
+// import topStoriesMock from './mocks/top-story-mock.json';
+
+const topStoriesMock = require('./mocks/top-story-mock.json');
 
 describe('App', () => {
 
