@@ -12,6 +12,7 @@ const logoNYT = require('../img/nyt-white-logo.jpg');
 const transparentNYTLogo = require('../img/nyt-logo-png-500x500.png');
 interface IAppState {
 	news: ITopStory[];
+	filteredNews: ITopStory[];
 	sections: any;
 	componentIsLoading: boolean;
 	loadingScreenInDOM: boolean;
@@ -23,6 +24,7 @@ class App extends React.Component<{}, IAppState> {
 		super(props);
 		this.state = {
 			news: [],
+			filteredNews: [],
 			sections: {},
 			componentIsLoading: true,
 			loadingScreenInDOM: true
@@ -30,12 +32,13 @@ class App extends React.Component<{}, IAppState> {
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
 		this.renderMasthead = this.renderMasthead.bind(this);
+		this.handleFilterChange = this.handleFilterChange.bind(this);
 	}
 
 	componentDidMount() {
 
 		nytRepositoryService.getTopStories().subscribe(topStories => {
-			this.setState({ news: topStories.results, componentIsLoading: false });
+			this.setState({ news: topStories.results, filteredNews: topStories.results, componentIsLoading: false });
 			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 1500); // Remove the loading screen status since we have the data
 		}, err => {
 			console.error('Error getting top stories! Err: ' + err);
@@ -43,8 +46,8 @@ class App extends React.Component<{}, IAppState> {
 	}
 
 	renderNewsCard(): JSX.Element[] | null {
-		if (this.state && this.state.news) {
-			return this.state.news.map((key, index) => {
+		if (this.state && this.state.news || this.state.filteredNews) {
+			return this.state.filteredNews.map((key, index) => {
 				return <NewsCard
 					title={key.title}
 					abstract={key.abstract}
@@ -70,13 +73,23 @@ class App extends React.Component<{}, IAppState> {
 
 	renderMasthead(): JSX.Element | null {
 		if (this.state && this.state.news !== []) {
-			return <Masthead news={this.state.news} key={'masthead' + this.state.news.toString()}/>;
+			return <Masthead handleFilterChange={this.handleFilterChange} key={'masthead' + this.state.news.toString()}/>;
 			// Why use a key instead of some lifecycle method like componentWill ReceiveProps at the children?
 			// componentWillReceiveProps will be depreciated at React 17 and key is a quick way of re-rendering the child compoennt on change
 		} else {
 			return null;
 		}
 	}
+
+	handleFilterChange(event): void {
+		const filteredResult: any[] = [];
+		this.state.news.filter( (singleStory) => {
+			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ) {
+				filteredResult.push(singleStory);
+			}
+		})
+		this.setState({ filteredNews: filteredResult});
+	  }
 
 	render() {
 		return (
