@@ -21,7 +21,7 @@ describe('App', () => {
 
     it('creates a new NewsCard component if correct data is in state', () => {
         const app = mount(<App />);
-        app.setState({ news: topStoriesMock.results });
+        app.setState({ news: topStoriesMock.results, filteredNews: topStoriesMock.results });
         expect(app.find('NewsCard').length).toBe(5);
     })
 

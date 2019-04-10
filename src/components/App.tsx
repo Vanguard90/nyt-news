@@ -12,6 +12,7 @@ const logoNYT = require('../img/nyt-white-logo.jpg');
 const transparentNYTLogo = require('../img/nyt-logo-png-500x500.png');
 interface IAppState {
 	news: ITopStory[];
+	filteredNews: ITopStory[];
 	sections: any;
 	componentIsLoading: boolean;
 	loadingScreenInDOM: boolean;
@@ -23,41 +24,30 @@ class App extends React.Component<{}, IAppState> {
 		super(props);
 		this.state = {
 			news: [],
+			filteredNews: [],
 			sections: {},
 			componentIsLoading: true,
 			loadingScreenInDOM: true
 		};
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
+		this.renderMasthead = this.renderMasthead.bind(this);
+		this.handleFilterChange = this.handleFilterChange.bind(this);
 	}
 
 	componentDidMount() {
 
 		nytRepositoryService.getTopStories().subscribe(topStories => {
-			this.setState({ news: topStories.results, componentIsLoading: false });
-			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 3000); // Remove the loading screen status since we have the data
+			this.setState({ news: topStories.results, filteredNews: topStories.results, componentIsLoading: false });
+			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 1500); // Remove the loading screen status since we have the data
 		}, err => {
-			console.log('Error getting top stories! Err: ' + err);
+			console.error('Error getting top stories! Err: ' + err);
 		});
 	}
 
-	// sectionFilter() {
-
-	// 	let holder = Object.keys(this.state.news).map(key => this.state.news[key].section); //This gives me an array of all sections.
-
-	// 	//Reduce the holder to find the number of spesific sections.
-	// 	//Update state with spesific section data so that app knows what type of sections we have and how many. Naturally reduce to an object.
-	// 	//Use this data to populate a dynamic filter section with input tags and checkboxes. Seperate component. 
-	// 	//Listen to these checkboxes. Call function onclick. 
-	// 	//Look for these sections at the NewsCard components. Possible use of reference.
-	// 	//Display:none on ones that are not selected.
-	// 	//Refresh steps 3/4/5 to update.
-
-	// }
-
 	renderNewsCard(): JSX.Element[] | null {
-		if (this.state && this.state.news) {
-			return this.state.news.map((key, index) => {
+		if (this.state && this.state.news || this.state.filteredNews) {
+			return this.state.filteredNews.map((key, index) => {
 				return <NewsCard
 					title={key.title}
 					abstract={key.abstract}
@@ -81,6 +71,27 @@ class App extends React.Component<{}, IAppState> {
 		}
 	}
 
+	renderMasthead(): JSX.Element | null {
+		if (this.state && this.state.news !== []) {
+			return <Masthead handleFilterChange={this.handleFilterChange} key={'masthead' + this.state.news.toString()}/>;
+			// Why use a key instead of some lifecycle method like componentWill ReceiveProps at the children?
+			// componentWillReceiveProps will be depreciated at React 17 and key is a quick way of re-rendering the child component on change
+		} else {
+			return null;
+		}
+	}
+
+	handleFilterChange(event): void {
+		const filteredResult: any[] = [];
+		this.state.news.filter( (singleStory) => {
+			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ||
+			singleStory.abstract.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ) {
+				filteredResult.push(singleStory);
+			}
+		})
+		this.setState({ filteredNews: filteredResult});
+	  }
+
 	render() {
 		return (
 			<div>
@@ -88,7 +99,7 @@ class App extends React.Component<{}, IAppState> {
 					this.renderLoadingScreen()
 				}
 				<Header />
-				<Masthead />
+				{ this.renderMasthead() }
 				<div className="list-of-news">
 					{
 						this.renderNewsCard()
