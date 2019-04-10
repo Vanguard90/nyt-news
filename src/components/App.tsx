@@ -75,7 +75,7 @@ class App extends React.Component<{}, IAppState> {
 		if (this.state && this.state.news !== []) {
 			return <Masthead handleFilterChange={this.handleFilterChange} key={'masthead' + this.state.news.toString()}/>;
 			// Why use a key instead of some lifecycle method like componentWill ReceiveProps at the children?
-			// componentWillReceiveProps will be depreciated at React 17 and key is a quick way of re-rendering the child compoennt on change
+			// componentWillReceiveProps will be depreciated at React 17 and key is a quick way of re-rendering the child component on change
 		} else {
 			return null;
 		}
@@ -84,7 +84,8 @@ class App extends React.Component<{}, IAppState> {
 	handleFilterChange(event): void {
 		const filteredResult: any[] = [];
 		this.state.news.filter( (singleStory) => {
-			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ) {
+			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ||
+			singleStory.abstract.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ) {
 				filteredResult.push(singleStory);
 			}
 		})
