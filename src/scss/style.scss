@@ -84,11 +84,9 @@ $L-width: 970px;
 $transition-delay: 0.5s;
 $transition-duration: 0.75s;
 
-html {
-	overflow-y: scroll;
-}
-
 #root {
+
+	width: calc(100vw - 17px);
 
 	#nyt-foreground-icon {
 		border: 1px solid $gray-20;
