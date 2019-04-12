@@ -71,7 +71,8 @@
     "start": "webpack-dev-server --open --mode=development",
     "build": "webpack --mode=production",
     "test": "jest --watch",
-    "test-ci": "jest&&codecov -t b92e021f-a74b-4536-b2ee-0f596d634218"
+    "test-coverage": "jest --coverage",
+    "test-ci": "jest --coverage && codecov -t b92e021f-a74b-4536-b2ee-0f596d634218"
   },
   "browserslist": [
     ">0.2%",
