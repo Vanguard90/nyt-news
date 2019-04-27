@@ -24,7 +24,7 @@ module.exports = (env, options) => {
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
-      historyApiFallback: true,
+    historyApiFallback: true,
     },
     entry: [path.join(__dirname, '/src/index.tsx')],
     output: {

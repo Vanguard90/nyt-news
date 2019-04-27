@@ -17,7 +17,6 @@ interface IAppState {
 	componentIsLoading: boolean;
 	loadingScreenInDOM: boolean;
 }
-
 class App extends React.Component<{}, IAppState> {
 
 	constructor(props: {}) {
