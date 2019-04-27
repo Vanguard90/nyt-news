@@ -21,6 +21,8 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.11.2",
