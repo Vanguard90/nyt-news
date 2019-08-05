@@ -1,39 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-interface IHeaderState {
-    weekDay: string;
-    day: number;
-    month: string;
-    year: number;
+const Header = () => {
+
+    const dateObj = new Date();
+    const [year] = useState(dateObj.getFullYear());
+    const [month] = useState(() => {
+        const initialMonthValue = getMonth(dateObj);
+        return initialMonthValue;
+    });
+    const [day] = useState(dateObj.getDate());
+    const [weekDay] = useState(() => {
+        const initialDayValue = getDay(dateObj);
+        return initialDayValue;
+    });
+
+    return (
+        <header className="header-holder">
+            <nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/" target="_blank" rel="noopener noreferrer">Go to NYTimes</a></nav>
+            <nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/pages/todayspaper/index.html" target="_blank" rel="noopener noreferrer">
+                    <i className="todays-paper-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16">
+                            <path d="M15,1H4C3.4,1,3,1.5,3,2v2.5H1c-0.5,0-1,0.4-1,1v6v1.8c0,1,0.9,1.8,2,1.8h2l0,0h8.5H15c0.5,0,1-0.5,1-1V2
+                                C16,1.5,15.5,1,15,1 M15,14H4V2h11V14z"/>
+                            <path d="M13,5V4h-0.5H6v1"/>
+                            <path d="M6,6h7v1H6V6z"/>
+                            <path d="M6,8h7v1H6V8z"/>
+                        </svg>
+                    </i>Today's paper
+                </a>
+            </nav>
+            <nav className="header-item"><p className="date-time">{weekDay}, {day} {month}, {year}</p></nav>
+        </header>
+
+    );
 }
-class Header extends React.Component<{}, IHeaderState> {
 
-	constructor(props) {
-		super(props);
-        this.setDate = this.setDate.bind(this);
-        this.setMonth = this.setMonth.bind(this);
-        this.setDay = this.setDay.bind(this);
-		this.state = {day: 0, month: "", year: 0, weekDay:""};
-	}
+function getMonth(currentDate: Date): string {
+    const month = currentDate.getMonth();
+    let monthString = "";
 
-	componentDidMount() {
-	    this.setDate();
-	}
-
-	setDate(): void {
-
-	    const currentDate = new Date();
-	    this.setState({day: currentDate.getDate()});
-	    this.setState({year: currentDate.getFullYear()});
-        this.setMonth(currentDate);
-        this.setDay(currentDate);
-    }
-    
-    setMonth(currentDate: Date): void {
-        const month = currentDate.getMonth();
-        let monthString = "";
-        
-	switch (month) {
+    switch (month) {
         case 0:
             monthString = "January";
             break;
@@ -70,12 +76,13 @@ class Header extends React.Component<{}, IHeaderState> {
         case 11:
             monthString = "December";
             break;
-        }
-        this.setState({month: monthString});
     }
 
-    setDay(currentDate: Date): void {
-        
+    return monthString;
+}
+
+function getDay(currentDate: Date): string {
+
     const weekDay = currentDate.getDay();
     let weekDayString = "";
 
@@ -103,28 +110,7 @@ class Header extends React.Component<{}, IHeaderState> {
         break;
     }
 
-    this.setState({weekDay: weekDayString});
-    }
-
-
-	render() {
-	return (
-		<header className="header-holder">
-		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/" target="_blank" rel="noopener noreferrer">Go to NYTimes</a></nav>
-		<nav className="header-item"><a className="todayspaper-link" href="https://www.nytimes.com/pages/todayspaper/index.html" target="_blank" rel="noopener noreferrer"><i className="todays-paper-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16">
-<path d="M15,1H4C3.4,1,3,1.5,3,2v2.5H1c-0.5,0-1,0.4-1,1v6v1.8c0,1,0.9,1.8,2,1.8h2l0,0h8.5H15c0.5,0,1-0.5,1-1V2
-	C16,1.5,15.5,1,15,1 M15,14H4V2h11V14z"/>
-<path d="M13,5V4h-0.5H6v1"/>
-<path d="M6,6h7v1H6V6z"/>
-<path d="M6,8h7v1H6V8z"/>
-</svg>
-</i>Today's paper
-</a>
-</nav>
-		<nav className="header-item"><p className="date-time">{this.state.weekDay}, {this.state.day} {this.state.month}, {this.state.year}</p></nav>
-		</header>
-	)
-}
+    return weekDayString;
 }
 
 export default Header;
