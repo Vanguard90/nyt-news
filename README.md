@@ -5,10 +5,12 @@
 
 An app that uses NYT api and React to display dynamic and up to date news content.
 
-Made with Typescript. Unit tests by Jest and Enzyme. CircleCI for continuous integration. Codecov for test coverage analysis.
+- It's made with Typescript.
 
-### TODO
+- Uses React hooks.
 
-- Tag system.
-- Filtering based on tag system.
-- As part of above points, partial loading (categorize article details).
+- Unit tests by Jest and Enzyme.
+
+- CircleCI for continuous integration and deployment.
+
+- Codecov for test coverage analysis.
