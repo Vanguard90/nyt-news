@@ -53,6 +53,5 @@ describe('App', () => {
         });
         app.update();
         expect(app.find('NewsCard').length).toBe(1);
-        console.log(app.debug());
     });
 });
