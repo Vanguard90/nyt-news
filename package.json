@@ -1,6 +1,6 @@
 {
   "name": "nyt-news",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "homepage": "https://www.eneskirimi.com/nyt-news/",
   "keywords": [
@@ -48,7 +48,6 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "rxjs": "^6.5.2",
     "ts-jest": "^24.0.2"
   },
   "jest": {

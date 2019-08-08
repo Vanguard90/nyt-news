@@ -36,12 +36,12 @@ class App extends React.Component<{}, IAppState> {
 
 	componentDidMount() {
 
-		nytRepositoryService.getTopStories().subscribe(topStories => {
+		nytRepositoryService.getTopStories().then(topStories => {
 			this.setState({ news: topStories.results, filteredNews: topStories.results, componentIsLoading: false });
 			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 1500); // Remove the loading screen status since we have the data
-		}, err => {
-			console.error('Error getting top stories! Err: ' + err);
-		});
+		}).catch((err) => {
+            console.error('Error at getting top stories: ', err);
+        });;
 	}
 
 	renderNewsCard(): JSX.Element[] | null {
@@ -80,7 +80,7 @@ class App extends React.Component<{}, IAppState> {
 		}
 	}
 
-	handleFilterChange(event): void {
+	handleFilterChange(event: React.ChangeEvent<HTMLInputElement>): void {
 		const filteredResult: any[] = [];
 		this.state.news.filter( (singleStory) => {
 			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ||
