@@ -92,7 +92,6 @@ class App extends React.Component<{}, IAppState> {
 	  }
 
 	render() {
-		console.log('Hello Xiyuan!');
 		return (
 			<div>
 				{
