@@ -41,7 +41,7 @@ class App extends React.Component<{}, IAppState> {
 			setTimeout(() => { this.setState({ loadingScreenInDOM: false }) }, 1500); // Remove the loading screen status since we have the data
 		}).catch((err) => {
             console.error('Error at getting top stories: ', err);
-        });;
+        });
 	}
 
 	renderNewsCard(): JSX.Element[] | null {
