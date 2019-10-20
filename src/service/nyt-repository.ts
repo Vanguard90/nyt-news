@@ -15,5 +15,9 @@ export async function getTopStories(): Promise<ITopStories> {
            }).catch((err) => {
             console.error('getTopStories fetch error: ', err);
            });
-        return result; // Note that perhaps try/catch is a better option here!!!
+        return result;
 }
+
+// Alternative would be something like const response = await fetch()...
+// const respose = await response.json();
+// With try-catch of course!
