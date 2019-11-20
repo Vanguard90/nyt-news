@@ -7,6 +7,8 @@ import Header from "./Header";
 import * as nytRepositoryService from '../service/nyt-repository';
 import { ITopStory } from '../service/service-interface';
 // import transparentNYTLogo from '../img/nyt-logo-png-500x500.png';
+import LogRocket from 'logrocket';
+
 
 const logoNYT = require('../img/nyt-white-logo.jpg');
 const transparentNYTLogo = require('../img/nyt-logo-png-500x500.png');
@@ -28,6 +30,9 @@ class App extends React.Component<{}, IAppState> {
 			componentIsLoading: true,
 			loadingScreenInDOM: true
 		};
+		
+		LogRocket.init('girfqq/nyt-app-prod');
+
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
 		this.renderMasthead = this.renderMasthead.bind(this);
