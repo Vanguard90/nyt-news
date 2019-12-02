@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Masthead = function (props) {
+const Masthead: React.FC<any> = function (props) {
 
 	return (
 		<div className="masthead">

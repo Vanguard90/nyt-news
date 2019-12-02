@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
 
     const dateObj = new Date();
     const [year] = useState(dateObj.getFullYear());

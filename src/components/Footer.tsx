@@ -3,7 +3,7 @@ import React from 'react';
 
 const logoAPI = require('../img/nyt-api-data-logo.png');
 
-const Footer = function () {
+const Footer: React.FC = function () {
 	return (
 		<footer>
 			<div className="footer">

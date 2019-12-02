@@ -9,7 +9,7 @@ interface INewsCardProps {
 	key: number;
 }
 
-const NewsCard = (props: INewsCardProps) => {
+const NewsCard:React.FC<INewsCardProps> = (props: INewsCardProps) => {
 		return (
 			<div className="menu-news">
 				<div className="NewsCard">
