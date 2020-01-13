@@ -46,6 +46,7 @@ module.exports = (env, options) => {
           test: /\.(jpe?g|png|gif|svg)$/i,
           loader: 'url-loader',
           options: {
+            esModule: false,
             limit: 10000,
           },
         },
