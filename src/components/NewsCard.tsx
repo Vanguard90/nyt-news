@@ -6,7 +6,7 @@ interface INewsCardProps {
 	abstract: string;
 	readurl: string;
 	section: string;
-	key: number;
+	key: string;
 }
 
 const NewsCard:React.FC<INewsCardProps> = (props: INewsCardProps) => {

@@ -56,9 +56,9 @@ class App extends React.Component<{}, IAppState> {
 					title={key.title}
 					abstract={key.abstract}
 					readurl={key.url}
-					multimediaurl={(key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
+					multimediaurl={(key.multimedia && key.multimedia.length > 3) ? (key.multimedia[3].url) : logoNYT}
 					section={key.section}
-					key={index} />
+					key={index + key.title} />
 			})
 		} else {
 			return null;
