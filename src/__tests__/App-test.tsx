@@ -7,6 +7,11 @@ const topStoriesMock = require('./mocks/top-story-mock.json');
 
 describe('App', () => {
 
+    beforeEach(() => {
+        fetchMock.resetMocks();
+        fetchMock.mockResponse(JSON.stringify(topStoriesMock));
+      });
+
     it('contains Header component', () => {
         expect(mount(<App />).find('Header').length).toBe(1);
     });
