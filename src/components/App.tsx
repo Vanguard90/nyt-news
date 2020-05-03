@@ -30,8 +30,11 @@ class App extends React.Component<{}, IAppState> {
 			componentIsLoading: true,
 			loadingScreenInDOM: true
 		};
-		
-		LogRocket.init('girfqq/nyt-app-prod');
+
+		// Don't initiate Logrocket in testing scenarios
+		if (process.env.NODE_ENV !== 'test') {
+			LogRocket.init('girfqq/nyt-app-prod');
+		}
 
 		this.renderNewsCard = this.renderNewsCard.bind(this);
 		this.renderLoadingScreen = this.renderLoadingScreen.bind(this);
