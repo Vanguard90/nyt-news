@@ -89,13 +89,12 @@ class App extends React.Component<{}, IAppState> {
 	}
 
 	handleFilterChange(event: React.ChangeEvent<HTMLInputElement>): void {
-		const filteredResult: any[] = [];
-		this.state.news.filter( (singleStory) => {
+		const filteredResult: ITopStory[] = this.state.news.filter( (singleStory) => {
 			if (singleStory.title.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ||
 			singleStory.abstract.toUpperCase().indexOf(event.target.value.toUpperCase()) > -1 ) {
-				filteredResult.push(singleStory);
+				return singleStory;
 			}
-		})
+		});
 		this.setState({ filteredNews: filteredResult});
 	  }
 
